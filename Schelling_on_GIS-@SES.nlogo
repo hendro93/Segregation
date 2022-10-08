@@ -1682,9 +1682,6 @@ NetLogo 6.3.0
     <enumeratedValueSet variable="threshold-mean">
       <value value="0.3"/>
     </enumeratedValueSet>
-    <enumeratedValueSet variable="show-labels">
-      <value value="false"/>
-    </enumeratedValueSet>
     <enumeratedValueSet variable="beta-eth">
       <value value="8"/>
     </enumeratedValueSet>
