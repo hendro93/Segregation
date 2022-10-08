@@ -1600,6 +1600,80 @@ NetLogo 6.3.0
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
+<experiments>
+  <experiment name="experiment_ethnic-religion" repetitions="20" runMetricsEveryStep="true">
+    <setup>setup</setup>
+    <go>go</go>
+    <metric>precision (sum [(ethnic-simpson - town-ethnic-simpson) * totalpop] of districts / sum [totalpop] of districts) 3</metric>
+    <metric>dissimilarity-string 0 dissimilarity-ses</metric>
+    <metric>dissimilarity-string 1 dissimilarity-ses</metric>
+    <metric>dissimilarity-string 2 dissimilarity-ses</metric>
+    <metric>dissimilarity-string 3 dissimilarity-ses</metric>
+    <metric>precision moran-I districts 3</metric>
+    <enumeratedValueSet variable="free-space">
+      <value value="0.05"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="religion">
+      <value value="&quot;OTHER&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="data-source">
+      <value value="&quot;simulation (dynamic)&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="town">
+      <value value="&quot;Jakarta&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="turnover">
+      <value value="0"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="color-axis-max">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="neighbor-weight">
+      <value value="0.17"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="others-ignore-ethn">
+      <value value="true"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="ethn-rel-recommendations">
+      <value value="true"/>
+    </enumeratedValueSet>
+    <steppedValueSet variable="beta-rel" first="0" step="4" last="30"/>
+    <enumeratedValueSet variable="ethnicity">
+      <value value="&quot;CHINESE&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="always-search">
+      <value value="false"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="tie-houses-to-religion">
+      <value value="true"/>
+      <value value="false"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="dissimilarity-religion">
+      <value value="&quot;all&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="threshold-mean">
+      <value value="0.3"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="beta-eth">
+      <value value="8"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="stop-tick">
+      <value value="100"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="always-move">
+      <value value="false"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="scale-down-pop">
+      <value value="100"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="threshold-sd">
+      <value value="0.1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="measure">
+      <value value="&quot;ethnicity fraction&quot;"/>
+    </enumeratedValueSet>
+  </experiment>
+</experiments>
 @#$#@#$#@
 @#$#@#$#@
 default
