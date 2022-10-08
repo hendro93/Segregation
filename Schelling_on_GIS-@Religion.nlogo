@@ -214,7 +214,7 @@ to visualize
     gis:fill x 0
 ;    ask dist [ set size 0 set label ifelse-value is-number? val [precision val 2] [val] set label-color 114  set hidden? not show-labels ]
   ]
-;  ask links [set hidden? not show-links]
+  ask links [hide-link]
   gis:set-drawing-color grey
   gis:draw townshp 1
   gis:set-drawing-color 130
