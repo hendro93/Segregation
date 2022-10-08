@@ -130,7 +130,7 @@ to go
   tick
 ;  if ticks = stop-tick or (moves-count / decisions-count < 0.01) [visualize stop]
   if ticks = stop-tick [
-    sound:play-note-later 1 "TRUMPET" 60 64 2
+;    sound:play-note-later 1 "TRUMPET" 60 64 2
     visualize stop
 
 
@@ -1002,7 +1002,7 @@ INPUTBOX
 1749
 70
 stop-tick
-1000.0
+100.0
 1
 0
 Number
