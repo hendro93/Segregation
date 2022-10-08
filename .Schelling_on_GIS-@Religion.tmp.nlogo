@@ -212,9 +212,9 @@ to visualize
     let val value-for-monitoring dist
     gis:set-drawing-color ifelse-value (is-number? val) [ifelse-value (val >= 0) [scale-color red val color-axis-max 0] [scale-color blue (0 - val) color-axis-max 0]] [gray]
     gis:fill x 0
-;    ask dist [ set size 0 set label ifelse-value is-number? val [precision val 2] [val] set label-color 114  set hidden? not show-labels ]
+    ask dist [ set size 0 set label ifelse-value is-number? val [precision val 2] [val] set label-color 114  set hidden? not show-labels ]
   ]
-;  ask links [set hidden? not show-links]
+  ask links [set hidden? not show-links]
   gis:set-drawing-color grey
   gis:draw townshp 1
   gis:set-drawing-color 130
@@ -501,6 +501,17 @@ NIL
 NIL
 1
 
+SWITCH
+959
+91
+1085
+124
+show-labels
+show-labels
+1
+1
+-1000
+
 BUTTON
 320
 339
@@ -655,6 +666,17 @@ PENS
 "avg local Simpson index (sim)" 1.0 0 -13345367 true "" "plot sum [totalpop * ethnic-simpson] of districts / sum [totalpop] of districts"
 "town Simpson index" 1.0 0 -16777216 true "" "plot town-ethnic-simpson"
 "avg local Simpson index (emp)" 1.0 0 -7500403 true "" "plot sum [totalpop * ethnic-simpson] of staticempiricals / sum [totalpop] of districts"
+
+SWITCH
+959
+60
+1085
+93
+show-links
+show-links
+1
+1
+-1000
 
 SLIDER
 320
