@@ -899,7 +899,7 @@ beta-eth
 beta-eth
 0
 30
-1.0
+8.0
 1
 1
 NIL
@@ -914,7 +914,7 @@ beta-rel
 beta-rel
 0
 30
-30.0
+8.0
 1
 1
 NIL
@@ -952,7 +952,7 @@ INPUTBOX
 1749
 70
 stop-tick
-1000.0
+100.0
 1
 0
 Number
@@ -1605,11 +1605,19 @@ NetLogo 6.3.0
     <setup>setup</setup>
     <go>go</go>
     <metric>precision (sum [(ethnic-simpson - town-ethnic-simpson) * totalpop] of districts / sum [totalpop] of districts) 3</metric>
-    <metric>dissimilarity-string 0 dissimilarity-ses</metric>
-    <metric>dissimilarity-string 1 dissimilarity-ses</metric>
-    <metric>dissimilarity-string 2 dissimilarity-ses</metric>
-    <metric>dissimilarity-string 3 dissimilarity-ses</metric>
+    <metric>dissimilarity-string 0 dissimilarity-religion</metric>
+    <metric>dissimilarity-string 1 dissimilarity-religion</metric>
+    <metric>dissimilarity-string 2 dissimilarity-religion</metric>
+    <metric>dissimilarity-string 3 dissimilarity-religion</metric>
     <metric>precision moran-I districts 3</metric>
+    <enumeratedValueSet variable="beta-eth">
+      <value value="8"/>
+    </enumeratedValueSet>
+    <steppedValueSet variable="beta-rel" first="0" step="4" last="30"/>
+    <enumeratedValueSet variable="tie-houses-to-religion">
+      <value value="true"/>
+      <value value="false"/>
+    </enumeratedValueSet>
     <enumeratedValueSet variable="free-space">
       <value value="0.05"/>
     </enumeratedValueSet>
@@ -1637,15 +1645,10 @@ NetLogo 6.3.0
     <enumeratedValueSet variable="ethn-rel-recommendations">
       <value value="true"/>
     </enumeratedValueSet>
-    <steppedValueSet variable="beta-rel" first="0" step="4" last="30"/>
     <enumeratedValueSet variable="ethnicity">
       <value value="&quot;CHINESE&quot;"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="always-search">
-      <value value="false"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="tie-houses-to-religion">
-      <value value="true"/>
       <value value="false"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="dissimilarity-religion">
@@ -1653,9 +1656,6 @@ NetLogo 6.3.0
     </enumeratedValueSet>
     <enumeratedValueSet variable="threshold-mean">
       <value value="0.3"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="beta-eth">
-      <value value="8"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="stop-tick">
       <value value="100"/>
