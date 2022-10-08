@@ -130,7 +130,7 @@ to go
   tick
 ;  if ticks = stop-tick or (moves-count / decisions-count < 0.01) [visualize stop]
   if ticks = stop-tick [
-;    sound:play-note-later 1 "TRUMPET" 60 64 2
+    sound:play-note-later 1 "TRUMPET" 60 64 2
     visualize stop
 
 
@@ -232,9 +232,9 @@ to visualize
     let val value-for-monitoring dist
     gis:set-drawing-color ifelse-value (is-number? val) [ifelse-value (val >= 0) [scale-color red val color-axis-max 0] [scale-color blue (0 - val) color-axis-max 0]] [gray]
     gis:fill x 0
-    ask dist [ set size 0 set label ifelse-value is-number? val [precision val 2] [val] set label-color 114  set hidden? not show-labels ]
+;    ask dist [ set size 0 set label ifelse-value is-number? val [precision val 2] [val] set label-color 114  set hidden? not show-labels ]
   ]
-  ask links [set hidden? not show-links]
+;  ask links [set hidden? not show-links]
   gis:set-drawing-color grey
   gis:draw townshp 1
   gis:set-drawing-color black
@@ -529,17 +529,6 @@ NIL
 NIL
 1
 
-SWITCH
-905
-91
-1031
-124
-show-labels
-show-labels
-1
-1
--1000
-
 BUTTON
 320
 339
@@ -661,7 +650,7 @@ SWITCH
 337
 tie-houses-to-ses
 tie-houses-to-ses
-0
+1
 1
 -1000
 
@@ -694,17 +683,6 @@ PENS
 "avg local Simpson index (sim)" 1.0 0 -13345367 true "" "plot sum [totalpop * ethnic-simpson] of districts / sum [totalpop] of districts"
 "town Simpson index" 1.0 0 -16777216 true "" "plot town-ethnic-simpson"
 "avg local Simpson index (emp)" 1.0 0 -7500403 true "" "plot sum [totalpop * ethnic-simpson] of staticempiricals / sum [totalpop] of districts"
-
-SWITCH
-905
-60
-1031
-93
-show-links
-show-links
-1
-1
--1000
 
 SLIDER
 320
@@ -964,7 +942,7 @@ beta-ses
 beta-ses
 0
 30
-12.0
+28.0
 1
 1
 NIL
@@ -1646,10 +1624,87 @@ false
 Polygon -7500403 true true 270 75 225 30 30 225 75 270
 Polygon -7500403 true true 30 75 75 30 270 225 225 270
 @#$#@#$#@
-NetLogo 6.2.2
+NetLogo 6.3.0
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
+<experiments>
+  <experiment name="experiment_ethnic-SES" repetitions="20" runMetricsEveryStep="true">
+    <setup>setup</setup>
+    <go>go</go>
+    <metric>precision (sum [(ethnic-simpson - town-ethnic-simpson) * totalpop] of districts / sum [totalpop] of districts) 3</metric>
+    <metric>dissimilarity-string 0 dissimilarity-ses</metric>
+    <metric>dissimilarity-string 1 dissimilarity-ses</metric>
+    <metric>dissimilarity-string 2 dissimilarity-ses</metric>
+    <metric>dissimilarity-string 3 dissimilarity-ses</metric>
+    <metric>precision moran-I districts 3</metric>
+    <enumeratedValueSet variable="free-space">
+      <value value="0.05"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="ses">
+      <value value="&quot;LOW&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="data-source">
+      <value value="&quot;simulation (dynamic)&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="town">
+      <value value="&quot;Jakarta&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="turnover">
+      <value value="0"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="color-axis-max">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="neighbor-weight">
+      <value value="0.17"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="others-ignore-ethn">
+      <value value="true"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="ethn-ses-recommendations">
+      <value value="true"/>
+    </enumeratedValueSet>
+    <steppedValueSet variable="beta-ses" first="0" step="4" last="30"/>
+    <enumeratedValueSet variable="ethnicity">
+      <value value="&quot;CHINESE&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="always-search">
+      <value value="false"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="tie-houses-to-ses">
+      <value value="true"/>
+      <value value="false"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="dissimilarity-ses">
+      <value value="&quot;all&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="threshold-mean">
+      <value value="0.3"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="show-labels">
+      <value value="false"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="beta-eth">
+      <value value="8"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="stop-tick">
+      <value value="100"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="scale-down-pop">
+      <value value="100"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="always-move">
+      <value value="false"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="threshold-sd">
+      <value value="0.1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="measure">
+      <value value="&quot;ethnicity fraction&quot;"/>
+    </enumeratedValueSet>
+  </experiment>
+</experiments>
 @#$#@#$#@
 @#$#@#$#@
 default
