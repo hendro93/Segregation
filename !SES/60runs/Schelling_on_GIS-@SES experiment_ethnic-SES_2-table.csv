@@ -1,0 +1,7 @@
+"BehaviorSpace results (NetLogo 6.3.0)"
+"Schelling_on_GIS-@SES.nlogo"
+"experiment_ethnic-SES_2"
+"10/09/2022 09:58:55:574 +0700"
+"min-pxcor","max-pxcor","min-pycor","max-pycor"
+"-16","16","-16","16"
+"[run number]","town","free-space","scale-down-pop","data-source","measure","ethnicity","ses","threshold-mean","threshold-sd","tie-houses-to-ses","beta-eth","beta-ses","color-axis-max","dissimilarity-ses","turnover","always-search","always-move","ethn-ses-recommendations","neighbor-weight","others-ignore-ethn","stop-tick","[step]","simpson-index","EGJ","CHN","EGS","OTH","moranI"
