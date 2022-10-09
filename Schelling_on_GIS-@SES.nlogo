@@ -409,7 +409,19 @@ to-report alpha-musigma [m s] report max list 0.001 (m * ((m * (1 - m)) / s ^ 2 
 to-report beta-musigma [m s] report max list 0.001 ((1 - m) * ((m * (1 - m)) / s ^ 2 - 1)) end
 to-report random-gumbel report (- ln ( - ln random-float 1)) end
 
-;; BASELINE SETTINGS
+to-report simpson-index report precision (sum [(ethnic-simpson - town-ethnic-simpson) * totalpop] of districts / sum [totalpop] of districts) 3 end
+
+to-report EGJ report precision (sum [dissimilarity 0 "all"] of districts / (2 * sum [totalpop] of districts * item 0 town-ethnicity-counts / town-totalpop * (1 - item 0 town-ethnicity-counts / town-totalpop))) 3 end
+
+to-report CHN report precision (sum [dissimilarity 1 "all"] of districts / (2 * sum [totalpop] of districts * item 1 town-ethnicity-counts / town-totalpop * (1 - item 1 town-ethnicity-counts / town-totalpop))) 3 end
+
+to-report EGS report precision (sum [dissimilarity 2 "all"] of districts / (2 * sum [totalpop] of districts * item 2 town-ethnicity-counts / town-totalpop * (1 - item 2 town-ethnicity-counts / town-totalpop))) 3 end
+
+to-report OTH report precision (sum [dissimilarity 3 "all"] of districts / (2 * sum [totalpop] of districts * item 3 town-ethnicity-counts / town-totalpop * (1 - item 3 town-ethnicity-counts / town-totalpop))) 3 end
+
+to-report moranI report precision moran-I districts 3 end
+
+  ;; BASELINE SETTINGS
 
 to baseline-further-parameters
   set free-space 0.05
@@ -942,7 +954,7 @@ beta-ses
 beta-ses
 0
 30
-28.0
+12.0
 1
 1
 NIL
@@ -1673,6 +1685,82 @@ NetLogo 6.3.0
       <value value="8"/>
     </enumeratedValueSet>
     <steppedValueSet variable="beta-ses" first="0" step="4" last="30"/>
+    <enumeratedValueSet variable="color-axis-max">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="dissimilarity-ses">
+      <value value="&quot;all&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="turnover">
+      <value value="0"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="always-search">
+      <value value="false"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="always-move">
+      <value value="false"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="ethn-ses-recommendations">
+      <value value="true"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="neighbor-weight">
+      <value value="0.17"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="others-ignore-ethn">
+      <value value="true"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="stop-tick">
+      <value value="100"/>
+    </enumeratedValueSet>
+  </experiment>
+  <experiment name="experiment_ethnic-SES_2" repetitions="10" runMetricsEveryStep="false">
+    <setup>setup</setup>
+    <go>go</go>
+    <metric>simpson-index</metric>
+    <metric>EGJ</metric>
+    <metric>CHN</metric>
+    <metric>EGS</metric>
+    <metric>OTH</metric>
+    <metric>moranI</metric>
+    <enumeratedValueSet variable="town">
+      <value value="&quot;Jakarta&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="free-space">
+      <value value="0.05"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="scale-down-pop">
+      <value value="100"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="data-source">
+      <value value="&quot;simulation (dynamic)&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="measure">
+      <value value="&quot;ethnicity fraction&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="ethnicity">
+      <value value="&quot;CHINESE&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="ses">
+      <value value="&quot;LOW&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="threshold-mean">
+      <value value="0.3"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="threshold-sd">
+      <value value="0.1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="tie-houses-to-ses">
+      <value value="false"/>
+      <value value="true"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="beta-eth">
+      <value value="8"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="beta-ses">
+      <value value="4"/>
+      <value value="8"/>
+      <value value="12"/>
+    </enumeratedValueSet>
     <enumeratedValueSet variable="color-axis-max">
       <value value="1"/>
     </enumeratedValueSet>
