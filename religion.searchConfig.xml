@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!DOCTYPE search SYSTEM "behaviorsearch.dtd">
+<search>
+    <bsearchVersionNumber>1.10</bsearchVersionNumber>
+    <modelInfo>
+        <modelFile>/Users/hendrakusumah/Documents/GitHub/Segregation/Schelling_on_GIS-@Religion.nlogo</modelFile>
+        <modelSetupCommands>setup</modelSetupCommands>
+        <modelStepCommands>go</modelStepCommands>
+        <modelStopCondition>count turtles &gt; 1000</modelStopCondition>
+        <modelStepLimit>100</modelStepLimit>
+        <modelMetricReporter>mean [dy] of turtles</modelMetricReporter>
+        <modelMeasureIf>true</modelMeasureIf>
+    </modelInfo>
+    <fitnessInfo>
+        <fitnessMinimized>false</fitnessMinimized>
+        <fitnessCollecting>AT_FINAL_STEP</fitnessCollecting>
+        <fitnessSamplingReplications>5</fitnessSamplingReplications>
+        <fitnessCombineReplications>MEAN</fitnessCombineReplications>
+    </fitnessInfo>
+    <searchSpace>
+        <paramSpec>["scale-down-pop" 100]</paramSpec>
+        <paramSpec>["town" "Jakarta"]</paramSpec>
+        <paramSpec>["free-space" 0.05]</paramSpec>
+        <paramSpec>["always-search"  false]</paramSpec>
+        <paramSpec>["tie-houses-to-religion" false false true]</paramSpec>
+        <paramSpec>["data-source" "simulation (dynamic)"]</paramSpec>
+        <paramSpec>["threshold-sd" 0.1]</paramSpec>
+        <paramSpec>["ethnicity" "CHINESE" ]</paramSpec>
+        <paramSpec>["religion" "OTHER"]</paramSpec>
+        <paramSpec>["measure" "--- for specific ethnicty ---" "ethnicity fraction" ]</paramSpec>
+        <paramSpec>["threshold-mean" 0.3]</paramSpec>
+        <paramSpec>["color-axis-max" 1]</paramSpec>
+        <paramSpec>["turnover" 0]</paramSpec>
+        <paramSpec>["beta-eth" 8]</paramSpec>
+        <paramSpec>["beta-rel" [0 1 30]]</paramSpec>
+        <paramSpec>["neighbor-weight" 0.17]</paramSpec>
+        <paramSpec>["others-ignore-ethn" true ]</paramSpec>
+        <paramSpec>["stop-tick" 100]</paramSpec>
+        <paramSpec>["always-move" false]</paramSpec>
+        <paramSpec>["ethn-rel-recommendations" true ]</paramSpec>
+        <paramSpec>["dissimilarity-religion" "all"]</paramSpec>
+    </searchSpace>
+    <searchMethod type="RandomSearch"/>
+    <chromosomeRepresentation type="GrayBinaryChromosome"/>
+    <caching>true</caching>
+    <evaluationLimit>300</evaluationLimit>
+    <bestCheckingNumReplications>0</bestCheckingNumReplications>
+</search>
