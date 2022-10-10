@@ -954,7 +954,7 @@ beta-ses
 beta-ses
 0
 30
-12.0
+28.0
 1
 1
 NIL
@@ -992,7 +992,7 @@ INPUTBOX
 1749
 70
 stop-tick
-100.0
+1000.0
 1
 0
 Number
@@ -1641,15 +1641,15 @@ NetLogo 6.3.0
 @#$#@#$#@
 @#$#@#$#@
 <experiments>
-  <experiment name="experiment_ethnic-SES" repetitions="10" runMetricsEveryStep="true">
+  <experiment name="experiment_ethnic-SES" repetitions="10" runMetricsEveryStep="false">
     <setup>setup</setup>
     <go>go</go>
-    <metric>precision (sum [(ethnic-simpson - town-ethnic-simpson) * totalpop] of districts / sum [totalpop] of districts) 3</metric>
-    <metric>precision (sum [dissimilarity 0 "all"] of districts / (2 * sum [totalpop] of districts * item 0 town-ethnicity-counts / town-totalpop * (1 - item 0 town-ethnicity-counts / town-totalpop))) 3</metric>
-    <metric>precision (sum [dissimilarity 1 "all"] of districts / (2 * sum [totalpop] of districts * item 1 town-ethnicity-counts / town-totalpop * (1 - item 1 town-ethnicity-counts / town-totalpop))) 3</metric>
-    <metric>precision (sum [dissimilarity 2 "all"] of districts / (2 * sum [totalpop] of districts * item 2 town-ethnicity-counts / town-totalpop * (1 - item 2 town-ethnicity-counts / town-totalpop))) 3</metric>
-    <metric>precision (sum [dissimilarity 3 "all"] of districts / (2 * sum [totalpop] of districts * item 3 town-ethnicity-counts / town-totalpop * (1 - item 3 town-ethnicity-counts / town-totalpop))) 3</metric>
-    <metric>precision moran-I districts 3</metric>
+    <metric>simpson-index</metric>
+    <metric>EGJ</metric>
+    <metric>CHN</metric>
+    <metric>EGS</metric>
+    <metric>OTH</metric>
+    <metric>moranI</metric>
     <enumeratedValueSet variable="town">
       <value value="&quot;Jakarta&quot;"/>
     </enumeratedValueSet>
@@ -1710,7 +1710,7 @@ NetLogo 6.3.0
       <value value="true"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="stop-tick">
-      <value value="100"/>
+      <value value="1000"/>
     </enumeratedValueSet>
   </experiment>
   <experiment name="experiment_ethnic-SES_2" repetitions="10" runMetricsEveryStep="false">
