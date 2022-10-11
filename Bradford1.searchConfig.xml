@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!DOCTYPE search SYSTEM "behaviorsearch.dtd">
+<search>
+    <bsearchVersionNumber>1.10</bsearchVersionNumber>
+    <modelInfo>
+        <modelFile>/Users/hendrakusumah/Downloads/Schelling_on_GIS-master/Schelling_on_GIS.nlogo</modelFile>
+        <modelSetupCommands>setup</modelSetupCommands>
+        <modelStepCommands>go</modelStepCommands>
+        <modelStopCondition>count turtles &gt; 100</modelStopCondition>
+        <modelStepLimit>100</modelStepLimit>
+        <modelMetricReporter>mean [dy] of turtles</modelMetricReporter>
+        <modelMeasureIf>true</modelMeasureIf>
+    </modelInfo>
+    <fitnessInfo>
+        <fitnessMinimized>false</fitnessMinimized>
+        <fitnessCollecting>AT_FINAL_STEP</fitnessCollecting>
+        <fitnessSamplingReplications>10</fitnessSamplingReplications>
+        <fitnessCombineReplications>MEAN</fitnessCombineReplications>
+    </fitnessInfo>
+    <searchSpace>
+        <paramSpec>["show-labels"  false]</paramSpec>
+        <paramSpec>["scale-down-pop" 10]</paramSpec>
+        <paramSpec>["town" "Bradford"]</paramSpec>
+        <paramSpec>["free-space" 0.05]</paramSpec>
+        <paramSpec>["always-search"  false]</paramSpec>
+        <paramSpec>["tie-houses-to-ses" true false]</paramSpec>
+        <paramSpec>["data-source" "simulation (dynamic)"]</paramSpec>
+        <paramSpec>["show-links"  false]</paramSpec>
+        <paramSpec>["threshold-sd" 0.1]</paramSpec>
+        <paramSpec>["ethnicity" "ASIAN"]</paramSpec>
+        <paramSpec>["ses" "HIGH"]</paramSpec>
+        <paramSpec>["measure" "ethnicity fraction" ]</paramSpec>
+        <paramSpec>["threshold-mean" 0.3]</paramSpec>
+        <paramSpec>["color-axis-max" 1]</paramSpec>
+        <paramSpec>["turnover" 0]</paramSpec>
+        <paramSpec>["beta-eth" 8]</paramSpec>
+        <paramSpec>["beta-ses" 4 8 12]</paramSpec>
+        <paramSpec>["neighbor-weight" 0.17]</paramSpec>
+        <paramSpec>["others-ignore-ethn" true ]</paramSpec>
+        <paramSpec>["stop-tick" 1260]</paramSpec>
+        <paramSpec>["always-move"  false]</paramSpec>
+        <paramSpec>["interacter-ses" "all" ]</paramSpec>
+        <paramSpec>["interact-with-ses" "all" ]</paramSpec>
+        <paramSpec>["ethn-ses-recommendations" true ]</paramSpec>
+        <paramSpec>["dissimilarity-ses" "all"]</paramSpec>
+    </searchSpace>
+    <searchMethod type="StandardGA">
+        <searchMethodParameter name="mutation-rate" value="0.01"/>
+        <searchMethodParameter name="population-size" value="50"/>
+        <searchMethodParameter name="tournament-size" value="3"/>
+        <searchMethodParameter name="population-model" value="generational"/>
+        <searchMethodParameter name="crossover-rate" value="0.7"/>
+    </searchMethod>
+    <chromosomeRepresentation type="GrayBinaryChromosome"/>
+    <caching>true</caching>
+    <evaluationLimit>300</evaluationLimit>
+    <bestCheckingNumReplications>1</bestCheckingNumReplications>
+</search>
