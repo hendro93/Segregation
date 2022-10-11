@@ -8,7 +8,7 @@
         <modelStepCommands>go</modelStepCommands>
         <modelStopCondition>count turtles &gt; 100</modelStopCondition>
         <modelStepLimit>100</modelStepLimit>
-        <modelMetricReporter>mean [dy] of turtles</modelMetricReporter>
+        <modelMetricReporter>mean [dx] of turtles</modelMetricReporter>
         <modelMeasureIf>true</modelMeasureIf>
     </modelInfo>
     <fitnessInfo>
@@ -44,12 +44,9 @@
         <paramSpec>["ethn-ses-recommendations" true ]</paramSpec>
         <paramSpec>["dissimilarity-ses" "all"]</paramSpec>
     </searchSpace>
-    <searchMethod type="StandardGA">
-        <searchMethodParameter name="mutation-rate" value="0.01"/>
-        <searchMethodParameter name="population-size" value="50"/>
-        <searchMethodParameter name="tournament-size" value="3"/>
-        <searchMethodParameter name="population-model" value="generational"/>
-        <searchMethodParameter name="crossover-rate" value="0.7"/>
+    <searchMethod type="MutationHillClimber">
+        <searchMethodParameter name="mutation-rate" value="0.05"/>
+        <searchMethodParameter name="restart-after-stall-count" value="0"/>
     </searchMethod>
     <chromosomeRepresentation type="GrayBinaryChromosome"/>
     <caching>true</caching>

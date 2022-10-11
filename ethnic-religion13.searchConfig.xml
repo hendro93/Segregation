@@ -8,7 +8,7 @@
         <modelStepCommands>go</modelStepCommands>
         <modelStopCondition>count turtles &gt; 100</modelStopCondition>
         <modelStepLimit>100</modelStepLimit>
-        <modelMetricReporter>mean [dy] of turtles</modelMetricReporter>
+        <modelMetricReporter> "ethnicity fraction"</modelMetricReporter>
         <modelMeasureIf>true</modelMeasureIf>
     </modelInfo>
     <fitnessInfo>
@@ -47,5 +47,5 @@
     <chromosomeRepresentation type="GrayBinaryChromosome"/>
     <caching>true</caching>
     <evaluationLimit>300</evaluationLimit>
-    <bestCheckingNumReplications>1</bestCheckingNumReplications>
+    <bestCheckingNumReplications>0</bestCheckingNumReplications>
 </search>
