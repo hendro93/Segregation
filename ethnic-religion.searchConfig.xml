@@ -9,7 +9,7 @@
         <modelStopCondition>count turtles &gt; 100</modelStopCondition>
         <modelStepLimit>100</modelStepLimit>
         <modelMetricReporter>CHN</modelMetricReporter>
-        <modelMeasureIf/>
+        <modelMeasureIf>true</modelMeasureIf>
     </modelInfo>
     <fitnessInfo>
         <fitnessMinimized>true</fitnessMinimized>
