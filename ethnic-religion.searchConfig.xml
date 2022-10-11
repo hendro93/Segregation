@@ -32,7 +32,7 @@
         <paramSpec>["color-axis-max" 1]</paramSpec>
         <paramSpec>["turnover" 0]</paramSpec>
         <paramSpec>["beta-eth" 8]</paramSpec>
-        <paramSpec>["beta-rel" [0 4 30]]</paramSpec>
+        <paramSpec>["beta-rel" 1 4 8 12 16 20 24 28 30]</paramSpec>
         <paramSpec>["neighbor-weight" 0.17]</paramSpec>
         <paramSpec>["others-ignore-ethn" true ]</paramSpec>
         <paramSpec>["stop-tick" 1000]</paramSpec>
