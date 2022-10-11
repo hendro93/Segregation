@@ -9,6 +9,7 @@
 #ea10 MutationHillClimber = 16 T
 #ea11 MutationHillClimber = 16 T
 #ea12 MutationHillClimber = 16 T
+#eaA MutationHillClimber = 
 
 bsData <- read.table(file = "ethnic-religion_5.bestHistory.csv", header = T
                      , sep = "," )
