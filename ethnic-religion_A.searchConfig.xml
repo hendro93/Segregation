@@ -8,11 +8,11 @@
         <modelStepCommands>go</modelStepCommands>
         <modelStopCondition>count turtles &gt; 100</modelStopCondition>
         <modelStepLimit>100</modelStepLimit>
-        <modelMetricReporter>mean [dx] of turtles</modelMetricReporter>
+        <modelMetricReporter>mean [dy] of turtles</modelMetricReporter>
         <modelMeasureIf>true</modelMeasureIf>
     </modelInfo>
     <fitnessInfo>
-        <fitnessMinimized>true</fitnessMinimized>
+        <fitnessMinimized>false</fitnessMinimized>
         <fitnessCollecting>AT_FINAL_STEP</fitnessCollecting>
         <fitnessSamplingReplications>10</fitnessSamplingReplications>
         <fitnessCombineReplications>MEAN</fitnessCombineReplications>
@@ -40,8 +40,10 @@
         <paramSpec>["ethn-rel-recommendations" true ]</paramSpec>
         <paramSpec>["dissimilarity-religion" "all" ]</paramSpec>
     </searchSpace>
-    <searchMethod type="MutationHillClimber">
+    <searchMethod type="SimulatedAnnealing">
+        <searchMethodParameter name="initial-temperature" value="1.0"/>
         <searchMethodParameter name="mutation-rate" value="0.05"/>
+        <searchMethodParameter name="temperature-change-factor" value="0.99"/>
         <searchMethodParameter name="restart-after-stall-count" value="0"/>
     </searchMethod>
     <chromosomeRepresentation type="GrayBinaryChromosome"/>
