@@ -442,35 +442,35 @@ end
 
 ;; EXPORT DATA
 
-to export-town_th-m_th-sd_tiehouses_b-eth_b-ses_ticks [TOW TH-M TH-SD TIEHOUSE B-ETH B-SES TI]
-  set town TOW
-  set scale-down-pop 10
-  baseline-further-parameters
-  set threshold-mean TH-M
-  set threshold-sd TH-SD
-  set tie-houses-to-ses TIEHOUSE
-  set beta-eth B-ETH
-  set beta-ses B-SES
-  set stop-tick TI
-  setup
-  shuffle-population
-  repeat stop-tick [ go ]
-  export-world (word "worlds/" TOWN "_" TH-M "_" TH-SD "_" TIEHOUSE "_" B-ETH "_" B-SES "_t" TI ".csv")
-end
-
-to load-town_th-m_th-sd_tiehouses_b-eth_b-ses_ticks [TOW TH-M TH-SD TIEHOUSE B-ETH B-SES TI]
-  import-world (word "worlds/" TOWN "_" TH-M "_" TH-SD "_" TIEHOUSE "_" B-ETH "_" B-SES "_t" TI ".csv")
-  load-gisdataset
-end
+;to export-town_th-m_th-sd_tiehouses_b-eth_b-ses_ticks [TOW TH-M TH-SD TIEHOUSE B-ETH B-SES TI]
+;  set town TOW
+;  set scale-down-pop 10
+;  baseline-further-parameters
+;  set threshold-mean TH-M
+;  set threshold-sd TH-SD
+;  set tie-houses-to-ses TIEHOUSE
+;  set beta-eth B-ETH
+;  set beta-ses B-SES
+;  set stop-tick TI
+;  setup
+;  shuffle-population
+;  repeat stop-tick [ go ]
+;  export-world (word "worlds/" TOWN "_" TH-M "_" TH-SD "_" TIEHOUSE "_" B-ETH "_" B-SES "_t" TI ".csv")
+;end
+;
+;to load-town_th-m_th-sd_tiehouses_b-eth_b-ses_ticks [TOW TH-M TH-SD TIEHOUSE B-ETH B-SES TI]
+;  import-world (word "worlds/" TOWN "_" TH-M "_" TH-SD "_" TIEHOUSE "_" B-ETH "_" B-SES "_t" TI ".csv")
+;  load-gisdataset
+;end
 @#$#@#$#@
 GRAPHICS-WINDOW
-517
-124
-1085
-693
+518
+120
+1083
+686
 -1
 -1
-16.97
+15.152
 1
 10
 1
@@ -491,10 +491,10 @@ ticks
 30.0
 
 BUTTON
-178
-36
-335
-69
+176
+42
+310
+76
 Load Town to Sim
 setup\n
 NIL
@@ -508,10 +508,10 @@ NIL
 1
 
 BUTTON
-476
-36
-650
-79
+520
+42
+689
+122
 Update Map and Plots
 visualize\nupdate-plots
 NIL
@@ -525,10 +525,10 @@ NIL
 1
 
 BUTTON
-453
-626
-508
-690
+450
+619
+519
+686
 Go
 go
 T
@@ -542,10 +542,10 @@ NIL
 1
 
 BUTTON
-320
-339
-507
-373
+310
+340
+520
+375
 Shuffle Population
 shuffle-population
 NIL
@@ -559,10 +559,10 @@ NIL
 1
 
 SLIDER
-178
-69
-312
-102
+176
+77
+311
+110
 scale-down-pop
 scale-down-pop
 20
@@ -574,10 +574,10 @@ NIL
 HORIZONTAL
 
 PLOT
-1092
-37
-1313
-194
+1281
+42
+1496
+211
 distribution districts
 sorted districts
 measure
@@ -593,10 +593,10 @@ PENS
 "emp" 1.0 0 -7500403 true "" "let y sort filter is-number? map value-for-monitoring [self] of staticempiricals\nforeach range length y [x -> plotxy x item x y ]\n"
 
 PLOT
-1312
-37
-1496
-194
+1084
+42
+1281
+211
 histogram districts
 measure
 #districts
@@ -612,10 +612,10 @@ PENS
 "pen-2" 0.025 1 -2674135 true "" "histogram filter is-number? map value-for-monitoring [self] of districts"
 
 INPUTBOX
-3
-36
-178
-102
+0
+42
+176
+110
 town
 Jakarta
 1
@@ -623,17 +623,17 @@ Jakarta
 String
 
 OUTPUT
-3
-102
+0
+111
 312
-641
+686
 12
 
 SLIDER
-1514
+1496
 57
-1662
-90
+1708
+87
 free-space
 free-space
 0
@@ -645,10 +645,10 @@ NIL
 HORIZONTAL
 
 SWITCH
-1589
-146
-1739
-179
+1574
+299
+1709
+329
 always-search
 always-search
 1
@@ -656,31 +656,31 @@ always-search
 -1000
 
 SWITCH
-320
-304
-507
-337
+310
+307
+520
+341
 tie-houses-to-ses
 tie-houses-to-ses
-0
+1
 1
 -1000
 
 CHOOSER
-318
-36
-476
-81
+312
+42
+520
+88
 data-source
 data-source
 "empirical (static)" "simulation (dynamic)"
 1
 
 PLOT
-1092
-226
-1495
-371
+1083
+211
+1496
+358
 segregation index
 time
 Simpson
@@ -697,10 +697,10 @@ PENS
 "avg local Simpson index (emp)" 1.0 0 -7500403 true "" "plot sum [totalpop * ethnic-simpson] of staticempiricals / sum [totalpop] of districts"
 
 SLIDER
-320
-269
-507
-302
+310
+275
+520
+309
 threshold-sd
 threshold-sd
 0
@@ -712,9 +712,9 @@ NIL
 HORIZONTAL
 
 PLOT
-320
-377
-507
+310
+376
+520
 508
 thresholds
 threshold
@@ -730,10 +730,10 @@ PENS
 "default" 0.025 1 -16777216 true "" "histogram all-thresholds"
 
 MONITOR
-1326
-320
-1495
-365
+1375
+358
+1709
+399
 excess avg Simpson index
 (word (precision (sum [(ethnic-simpson - town-ethnic-simpson) * totalpop] of districts / sum [totalpop] of districts) 3)\n   \" (emp. \" (precision (sum [(ethnic-simpson - town-ethnic-simpson) * totalpop] of staticempiricals / sum [totalpop] of staticempiricals) 3) \")\")
 3
@@ -741,40 +741,40 @@ excess avg Simpson index
 11
 
 CHOOSER
-318
-123
-426
-168
+312
+134
+423
+179
 ethnicity
 ethnicity
 "EGJ" "CHINESE" "EGS" "OTHER"
 1
 
 CHOOSER
-425
-123
-517
-168
+421
+133
+520
+179
 ses
 ses
 "LOW" "MID" "HIGH"
 0
 
 CHOOSER
-318
-79
-518
-124
+312
+88
+520
+134
 measure
 measure
 "--- for specific ethnicty ---" "ethnicity fraction" "ethnicity dissimilarity" "ethnicity location quotient" "ethnicity avg threshold" "ethnicity avg SES" "--- for specific SES ---" "SES fraction" "SES avg threshold" "--- for specific ethnicity and SES ---" "ethnicity-SES fraction" "ethnicity-SES loc. quo." "ethnicity-SES avg thres" "ethnicity-SES obs utility" "--- local indices ---" "Simpson index" "entropy index" "excess Simpson index" "loss ethnic entropy" "--- other measures ---" "pop / mean pop" "pop / max pop" "avg threshold" "avg SES"
 1
 
 SLIDER
-320
-236
-507
-269
+310
+243
+520
+277
 threshold-mean
 threshold-mean
 0
@@ -786,39 +786,39 @@ NIL
 HORIZONTAL
 
 TEXTBOX
-8
-10
-269
-30
+16
+12
+277
+32
 1. Load Town from GIS Data 
 18
 114.0
 1
 
 TEXTBOX
-318
-10
-592
-32
+324
+12
+523
+34
 2. Explore Local Data
 18
 114.0
 1
 
 TEXTBOX
-321
-186
-500
-206
+316
+182
+495
+202
 3. Setup Simulation
 18
 114.0
 1
 
 TEXTBOX
-325
+320
 210
-463
+458
 234
 individual thresholds from Beta-distribution
 9
@@ -826,20 +826,20 @@ individual thresholds from Beta-distribution
 1
 
 TEXTBOX
-326
-574
-486
-596
+324
+558
+484
+580
 4. Run Simulation
 18
 114.0
 1
 
 MONITOR
-1359
-415
-1495
-460
+1374
+441
+1534
+482
 Dissimilarity CHINESE
 dissimilarity-string 1 dissimilarity-ses
 3
@@ -847,10 +847,10 @@ dissimilarity-string 1 dissimilarity-ses
 11
 
 MONITOR
-1359
-370
-1495
-415
+1374
+400
+1534
+441
 Dissimilarity EGJ
 dissimilarity-string 0 dissimilarity-ses
 3
@@ -858,10 +858,10 @@ dissimilarity-string 0 dissimilarity-ses
 11
 
 MONITOR
-1359
-460
-1495
-505
+1374
+482
+1534
+523
 Dissimilarity EGS
 dissimilarity-string 2 dissimilarity-ses
 3
@@ -869,10 +869,10 @@ dissimilarity-string 2 dissimilarity-ses
 11
 
 MONITOR
-1359
-505
-1495
-550
+1374
+523
+1534
+564
 Dissimilarity OTHER
 dissimilarity-string 3 dissimilarity-ses
 3
@@ -880,10 +880,10 @@ dissimilarity-string 3 dissimilarity-ses
 11
 
 PLOT
-1092
-370
-1359
-550
+1084
+358
+1374
+564
 dissimilarity
 time
 dissimilarity
@@ -901,40 +901,40 @@ PENS
 "OTHER" 1.0 0 -7500403 true "" "plot sum [dissimilarity 3 \"all\"] of districts / (2 * town-totalpop * item 3 town-ethnicity-counts / town-totalpop * (1 - item 3 town-ethnicity-counts / town-totalpop ))"
 
 SLIDER
-650
-46
-783
-79
+690
+42
+938
+76
 color-axis-max
 color-axis-max
 0.1
 5
-1.0
+2.5
 0.1
 1
 NIL
 HORIZONTAL
 
 SLIDER
-1514
-113
-1684
-146
+1497
+210
+1709
+240
 turnover
 turnover
 0
 0.05
-0.0
+0.001
 0.001
 1
 NIL
 HORIZONTAL
 
 SLIDER
-321
-625
-447
-658
+310
+619
+450
+653
 beta-eth
 beta-eth
 0
@@ -946,25 +946,25 @@ NIL
 HORIZONTAL
 
 SLIDER
-321
-657
-447
-690
+310
+653
+451
+686
 beta-ses
 beta-ses
 0
 30
-28.0
+12.0
 1
 1
 NIL
 HORIZONTAL
 
 SLIDER
-1514
-243
-1684
-276
+1497
+270
+1709
+300
 neighbor-weight
 neighbor-weight
 0
@@ -976,10 +976,10 @@ NIL
 HORIZONTAL
 
 SWITCH
-1514
-275
-1684
-308
+1533
+574
+1709
+604
 others-ignore-ethn
 others-ignore-ethn
 0
@@ -987,10 +987,10 @@ others-ignore-ethn
 -1000
 
 INPUTBOX
-1697
-10
-1749
-70
+1496
+87
+1708
+184
 stop-tick
 1000.0
 1
@@ -998,10 +998,10 @@ stop-tick
 Number
 
 MONITOR
-517
-79
-774
-124
+689
+76
+938
+122
 data in map
 color-explain-string
 17
@@ -1009,10 +1009,10 @@ color-explain-string
 11
 
 MONITOR
-320
-509
-389
-554
+312
+508
+520
+553
 #agents
 town-totalpop
 17
@@ -1020,10 +1020,10 @@ town-totalpop
 11
 
 MONITOR
-773
-79
-905
-124
+938
+76
+1083
+121
 Moran-I (spatial cor.)
 (word precision moran-I districts 3 \" (emp \" precision moran-I staticempiricals 3 \")\")
 3
@@ -1031,19 +1031,19 @@ Moran-I (spatial cor.)
 11
 
 TEXTBOX
-1511
-10
-1693
-29
+1508
+12
+1690
+31
 Further Parameters
 18
 114.0
 1
 
 TEXTBOX
-1515
-39
-1673
+1499
+40
+1642
 57
 Used while loading town
 12
@@ -1051,20 +1051,20 @@ Used while loading town
 1
 
 TEXTBOX
-1515
-97
-1685
-115
+1502
+194
+1655
+211
 Used at simulation runtime
 12
 0.0
 1
 
 BUTTON
-783
-46
-905
-79
+939
+42
+1083
+76
 Toggle 1| max
 toggle-color-axis-max\nvisualize\nupdate-plots
 NIL
@@ -1078,30 +1078,30 @@ NIL
 1
 
 TEXTBOX
-1094
-10
-1455
-33
-5. Outcomes Simulation vs. Emipirical 
+1100
+12
+1461
+35
+6. Outcomes Simulation vs. Emipirical 
 18
 114.0
 1
 
 TEXTBOX
-329
-598
-505
-623
+324
+582
+500
+607
 weights for the fraction of similars in the function of observable utility
 9
 0.0
 1
 
 BUTTON
-1514
-311
-1712
-344
+1534
+644
+1709
+686
 Set baseline further params
 baseline-further-parameters\n
 NIL
@@ -1115,10 +1115,10 @@ NIL
 1
 
 BUTTON
-1514
-343
-1712
-376
+1534
+604
+1709
+644
 Set baseline core params
 baseline-core-parameters
 NIL
@@ -1131,21 +1131,11 @@ NIL
 NIL
 1
 
-TEXTBOX
-1096
-208
-1246
-226
-Time trends\n
-12
-0.0
-1
-
 PLOT
-1092
-549
-1360
-693
+1084
+564
+1373
+686
 Individual activities
 time
 fraction
@@ -1161,10 +1151,10 @@ PENS
 "moving" 1.0 0 -955883 true "" "if ticks > 0 [plot moves-count / decisions-count]"
 
 MONITOR
-1286
+1374
 604
-1358
-649
+1535
+645
 searching
 searches-count / decisions-count
 3
@@ -1172,10 +1162,10 @@ searches-count / decisions-count
 11
 
 MONITOR
-1286
-648
-1358
-693
+1374
+645
+1535
+686
 moving
 moves-count / decisions-count
 3
@@ -1183,10 +1173,10 @@ moves-count / decisions-count
 11
 
 SWITCH
-1589
-178
-1739
-211
+1574
+329
+1709
+359
 always-move
 always-move
 1
@@ -1194,54 +1184,64 @@ always-move
 -1000
 
 TEXTBOX
-1519
-152
-1587
-178
+1504
+303
+1567
+380
 skip decision step 1
 9
 0.0
 1
 
 TEXTBOX
-1519
-182
-1587
-205
+1504
+331
+1567
+383
 skip decision step 2
 9
 0.0
 1
 
 SWITCH
-1514
-210
-1739
-243
+1497
+240
+1709
+270
 ethn-ses-recommendations
 ethn-ses-recommendations
-0
+1
 1
 -1000
 
 CHOOSER
-1359
-550
-1495
-595
+1373
+564
+1534
+605
 dissimilarity-ses
 dissimilarity-ses
 "all" "LOW" "MID" "HIGH"
-0
+2
+
+TEXTBOX
+534
+12
+684
+34
+5. GIS Map
+18
+115.0
+1
 
 PLOT
-1515
-393
-1715
-543
-Moran-I
-time
-Moran-I
+1534
+398
+1709
+575
+Check_Moran-I
+NIL
+NIL
 0.0
 10.0
 0.0
@@ -1250,8 +1250,8 @@ true
 false
 "" ""
 PENS
-"default" 1.0 0 -2674135 true "" "plot moran-I districts"
-"pen-1" 1.0 0 -7500403 true "" "plot moran-I staticempiricals"
+"default" 1.0 0 -2674135 true "" "plot precision moran-I districts 3"
+"pen-1" 1.0 0 -7500403 true "" "plot precision moran-I staticempiricals 3"
 
 @#$#@#$#@
 ## WHAT IS IT?

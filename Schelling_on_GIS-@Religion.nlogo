@@ -410,35 +410,35 @@ end
 
 ;; EXPORT DATA
 
-to export-town_th-m_th-sd_tiehouses_b-eth_b-rel_ticks [TOW TH-M TH-SD TIEHOUSE B-ETH B-REL TI]
-  set town TOW
-  set scale-down-pop 10
-  baseline-further-parameters
-  set threshold-mean TH-M
-  set threshold-sd TH-SD
-  set tie-houses-to-religion TIEHOUSE
-  set beta-eth B-ETH
-  set beta-rel B-REL
-  set stop-tick TI
-  setup
-  shuffle-population
-  repeat stop-tick [ go ]
-  export-world (word "worlds/" TOWN "_" TH-M "_" TH-SD "_" TIEHOUSE "_" B-ETH "_" B-REL "_t" TI ".csv")
-end
-
-to load-town_th-m_th-sd_tiehouses_b-eth_b-rel_ticks [TOW TH-M TH-SD TIEHOUSE B-ETH B-REL TI]
-  import-world (word "worlds/" TOWN "_" TH-M "_" TH-SD "_" TIEHOUSE "_" B-ETH "_" B-REL "_t" TI ".csv")
-  load-gisdataset
-end
+;to export-town_th-m_th-sd_tiehouses_b-eth_b-rel_ticks [TOW TH-M TH-SD TIEHOUSE B-ETH B-REL TI]
+;  set town TOW
+;  set scale-down-pop 10
+;  baseline-further-parameters
+;  set threshold-mean TH-M
+;  set threshold-sd TH-SD
+;  set tie-houses-to-religion TIEHOUSE
+;  set beta-eth B-ETH
+;  set beta-rel B-REL
+;  set stop-tick TI
+;  setup
+;  shuffle-population
+;  repeat stop-tick [ go ]
+;  export-world (word "worlds/" TOWN "_" TH-M "_" TH-SD "_" TIEHOUSE "_" B-ETH "_" B-REL "_t" TI ".csv")
+;end
+;
+;to load-town_th-m_th-sd_tiehouses_b-eth_b-rel_ticks [TOW TH-M TH-SD TIEHOUSE B-ETH B-REL TI]
+;  import-world (word "worlds/" TOWN "_" TH-M "_" TH-SD "_" TIEHOUSE "_" B-ETH "_" B-REL "_t" TI ".csv")
+;  load-gisdataset
+;end
 @#$#@#$#@
 GRAPHICS-WINDOW
-517
-123
+518
+122
 1086
-693
+691
 -1
 -1
-17.0
+13.52
 1
 10
 1
@@ -459,10 +459,10 @@ ticks
 30.0
 
 BUTTON
-178
-36
-335
-69
+182
+42
+313
+77
 Load Town to Sim
 setup\n
 NIL
@@ -476,10 +476,10 @@ NIL
 1
 
 BUTTON
-476
-36
-650
-79
+516
+42
+714
+122
 Update Map and Plots
 carefully [visualize] [print error-message]\nupdate-plots
 NIL
@@ -493,10 +493,10 @@ NIL
 1
 
 BUTTON
-453
-626
-508
-690
+463
+622
+519
+692
 Go
 go
 T
@@ -510,10 +510,10 @@ NIL
 1
 
 BUTTON
-320
-339
-507
-373
+315
+336
+516
+371
 Shuffle Population
 shuffle-population
 NIL
@@ -527,10 +527,10 @@ NIL
 1
 
 SLIDER
-178
-69
-312
-102
+182
+78
+313
+111
 scale-down-pop
 scale-down-pop
 20
@@ -542,10 +542,10 @@ NIL
 HORIZONTAL
 
 PLOT
-1092
-37
-1313
-194
+1089
+42
+1310
+199
 distribution districts
 sorted districts
 measure
@@ -561,10 +561,10 @@ PENS
 "emp" 1.0 0 -7500403 true "" "let y sort filter is-number? map value-for-monitoring [self] of staticempiricals\nforeach range length y [x -> plotxy x item x y ]\n"
 
 PLOT
-1312
-37
-1496
-194
+1310
+42
+1492
+199
 histogram districts
 measure
 #districts
@@ -581,9 +581,9 @@ PENS
 
 INPUTBOX
 3
-36
-178
-102
+42
+180
+111
 town
 Jakarta
 1
@@ -592,16 +592,16 @@ String
 
 OUTPUT
 3
-102
-312
-641
+112
+313
+692
 12
 
 SLIDER
-1514
-57
-1662
-90
+1493
+58
+1714
+91
 free-space
 free-space
 0
@@ -613,9 +613,9 @@ NIL
 HORIZONTAL
 
 SWITCH
-1589
+1568
 146
-1739
+1714
 179
 always-search
 always-search
@@ -624,10 +624,10 @@ always-search
 -1000
 
 SWITCH
-320
-304
-508
-337
+315
+302
+517
+335
 tie-houses-to-religion
 tie-houses-to-religion
 0
@@ -635,20 +635,20 @@ tie-houses-to-religion
 -1000
 
 CHOOSER
-318
-36
-476
-81
+315
+42
+516
+87
 data-source
 data-source
 "empirical (static)" "simulation (dynamic)"
 1
 
 PLOT
-1092
-226
-1495
-371
+1088
+225
+1493
+370
 segregation index
 time
 Simpson
@@ -665,10 +665,10 @@ PENS
 "avg local Simpson index (emp)" 1.0 0 -7500403 true "" "plot sum [totalpop * ethnic-simpson] of staticempiricals / sum [totalpop] of districts"
 
 SLIDER
-320
-269
-507
-302
+315
+268
+517
+301
 threshold-sd
 threshold-sd
 0
@@ -680,10 +680,10 @@ NIL
 HORIZONTAL
 
 PLOT
-320
-377
-507
-508
+315
+372
+516
+504
 thresholds
 threshold
 #agents
@@ -698,10 +698,10 @@ PENS
 "default" 0.025 1 -16777216 true "" "histogram all-thresholds"
 
 MONITOR
-1326
-320
-1495
-365
+1323
+325
+1492
+370
 excess avg Simpson index
 (word (precision (sum [(ethnic-simpson - town-ethnic-simpson) * totalpop] of districts / sum [totalpop] of districts) 3)\n   \" (emp. \" (precision (sum [(ethnic-simpson - town-ethnic-simpson) * totalpop] of staticempiricals / sum [totalpop] of staticempiricals) 3) \")\")
 3
@@ -709,40 +709,40 @@ excess avg Simpson index
 11
 
 CHOOSER
-318
-123
-426
-168
+315
+130
+423
+175
 ethnicity
 ethnicity
 "EGJ" "CHINESE" "EGS" "OTHER"
 1
 
 CHOOSER
-425
-123
-517
-168
+422
+130
+516
+175
 religion
 religion
 "MUSLIM" "CHRISTIAN" "OTHER"
 2
 
 CHOOSER
-318
-79
-618
-124
+315
+86
+516
+131
 measure
 measure
 "--- for specific ethnicty ---" "ethnicity fraction" "ethnicity dissimilarity" "ethnicity location quotient" "ethnicity avg threshold" "ethnicity avg religion" "--- for specific religion ---" "religion fraction" "religion avg threshold" "--- for specific ethnicity and religion ---" "ethnicity-religion fraction" "ethnicity-religion loc. quo." "ethnicity-religion avg thres" "ethnicity-religion obs utility" "--- local indices ---" "Simpson index" "entropy index" "excess Simpson index" "loss ethnic entropy" "--- other measures ---" "pop / mean pop" "pop / max pop" "avg threshold" "avg religion"
 1
 
 SLIDER
-320
-236
-507
-269
+315
+235
+517
+268
 threshold-mean
 threshold-mean
 0
@@ -754,9 +754,9 @@ NIL
 HORIZONTAL
 
 TEXTBOX
-8
+9
 10
-269
+270
 30
 1. Load Town from GIS Data 
 18
@@ -764,9 +764,9 @@ TEXTBOX
 1
 
 TEXTBOX
-318
+317
 10
-592
+591
 32
 2. Explore Local Data
 18
@@ -774,39 +774,39 @@ TEXTBOX
 1
 
 TEXTBOX
-321
-186
-500
-206
+316
+185
+495
+205
 3. Setup Simulation
 18
 114.0
 1
 
 TEXTBOX
-325
-210
-463
-234
+319
+206
+457
+230
 individual thresholds from Beta-distribution
 9
 0.0
 1
 
 TEXTBOX
-326
-574
-486
-596
+323
+562
+483
+584
 4. Run Simulation
 18
 114.0
 1
 
 MONITOR
-1359
+1356
 415
-1495
+1492
 460
 Dissimilarity CHINESE
 dissimilarity-string 1 dissimilarity-religion
@@ -815,9 +815,9 @@ dissimilarity-string 1 dissimilarity-religion
 11
 
 MONITOR
-1359
+1356
 370
-1495
+1492
 415
 Dissimilarity EGJ
 dissimilarity-string 0 dissimilarity-religion
@@ -826,10 +826,10 @@ dissimilarity-string 0 dissimilarity-religion
 11
 
 MONITOR
-1359
-460
-1495
-505
+1356
+462
+1492
+507
 Dissimilarity EGS
 dissimilarity-string 2 dissimilarity-religion
 3
@@ -837,9 +837,9 @@ dissimilarity-string 2 dissimilarity-religion
 11
 
 MONITOR
-1359
+1356
 505
-1495
+1492
 550
 Dissimilarity OTHER
 dissimilarity-string 3 dissimilarity-religion
@@ -848,10 +848,10 @@ dissimilarity-string 3 dissimilarity-religion
 11
 
 PLOT
-1092
+1088
 370
-1359
-550
+1356
+544
 dissimilarity
 time
 dissimilarity
@@ -869,10 +869,10 @@ PENS
 "OTHER" 1.0 0 -7500403 true "" "plot sum [dissimilarity 3 \"all\"] of districts / (2 * town-totalpop * item 3 town-ethnicity-counts / town-totalpop * (1 - item 3 town-ethnicity-counts / town-totalpop ))"
 
 SLIDER
-650
-46
-825
-79
+715
+42
+953
+75
 color-axis-max
 color-axis-max
 0.1
@@ -884,10 +884,10 @@ NIL
 HORIZONTAL
 
 SLIDER
-1514
-113
-1684
-146
+1493
+116
+1714
+149
 turnover
 turnover
 0
@@ -899,10 +899,10 @@ NIL
 HORIZONTAL
 
 SLIDER
-321
-625
-447
-658
+315
+622
+462
+655
 beta-eth
 beta-eth
 0
@@ -914,25 +914,25 @@ NIL
 HORIZONTAL
 
 SLIDER
-321
-657
-447
-690
+315
+658
+462
+691
 beta-rel
 beta-rel
 0
 30
-12.0
+28.0
 1
 1
 NIL
 HORIZONTAL
 
 SLIDER
-1514
-243
-1684
-276
+1493
+245
+1714
+278
 neighbor-weight
 neighbor-weight
 0
@@ -944,10 +944,10 @@ NIL
 HORIZONTAL
 
 SWITCH
-1514
-275
-1684
-308
+1493
+276
+1714
+309
 others-ignore-ethn
 others-ignore-ethn
 0
@@ -955,21 +955,21 @@ others-ignore-ethn
 -1000
 
 INPUTBOX
-1697
-10
-1749
-70
+1493
+376
+1559
+436
 stop-tick
-100.0
+1000.0
 1
 0
 Number
 
 MONITOR
-517
-79
-826
-124
+713
+76
+953
+121
 data in map
 color-explain-string
 17
@@ -977,10 +977,10 @@ color-explain-string
 11
 
 MONITOR
-320
-509
-389
-554
+315
+505
+384
+550
 #agents
 town-totalpop
 17
@@ -988,10 +988,10 @@ town-totalpop
 11
 
 MONITOR
-827
-79
-959
-124
+955
+76
+1087
+121
 Moran-I (spatial cor.)
 (word precision moran-I districts 3 \" (emp \" precision moran-I staticempiricals 3 \")\")
 3
@@ -999,9 +999,9 @@ Moran-I (spatial cor.)
 11
 
 TEXTBOX
-1511
+1492
 10
-1693
+1674
 29
 Further Parameters
 18
@@ -1009,30 +1009,30 @@ Further Parameters
 1
 
 TEXTBOX
-1515
-39
-1673
-57
+1494
+42
+1652
+60
 Used while loading town
 12
 0.0
 1
 
 TEXTBOX
-1515
-97
-1685
-115
+1493
+98
+1663
+116
 Used at simulation runtime
 12
 0.0
 1
 
 BUTTON
-827
-46
-959
-79
+953
+42
+1086
+75
 Toggle 1| max
 toggle-color-axis-max\nvisualize\nupdate-plots
 NIL
@@ -1046,30 +1046,30 @@ NIL
 1
 
 TEXTBOX
-1094
+1092
 10
-1455
+1453
 33
-5. Simulation vs. Emipirical 
+6. Simulation vs. Emipirical 
 18
 114.0
 1
 
 TEXTBOX
-329
-598
-505
-623
+326
+588
+502
+613
 weights for the fraction of similars in the function of observable utility
 9
 0.0
 1
 
 BUTTON
-1514
-311
-1712
-344
+1493
+310
+1714
+343
 Set baseline further params
 baseline-further-parameters\n
 NIL
@@ -1083,9 +1083,9 @@ NIL
 1
 
 BUTTON
-1514
+1493
 343
-1712
+1714
 376
 Set baseline core params
 baseline-core-parameters
@@ -1100,20 +1100,20 @@ NIL
 1
 
 TEXTBOX
-1096
-208
-1246
-226
+1095
+206
+1245
+224
 Time trends\n
 12
 0.0
 1
 
 PLOT
-1092
-549
-1360
-693
+1088
+545
+1356
+692
 Individual activities
 time
 fraction
@@ -1129,10 +1129,10 @@ PENS
 "moving" 1.0 0 -955883 true "" "if ticks > 0 [plot moves-count / decisions-count]"
 
 MONITOR
-1286
-604
-1358
-649
+1283
+600
+1355
+645
 searching
 searches-count / decisions-count
 3
@@ -1140,10 +1140,10 @@ searches-count / decisions-count
 11
 
 MONITOR
-1286
-648
-1358
-693
+1283
+645
+1355
+690
 moving
 moves-count / decisions-count
 3
@@ -1151,10 +1151,10 @@ moves-count / decisions-count
 11
 
 SWITCH
-1589
-178
-1739
-211
+1568
+180
+1714
+213
 always-move
 always-move
 1
@@ -1162,30 +1162,30 @@ always-move
 -1000
 
 TEXTBOX
-1519
-152
-1587
-178
+1498
+155
+1566
+181
 skip decision step 1
 9
 0.0
 1
 
 TEXTBOX
-1519
-182
-1587
-205
+1498
+185
+1566
+208
 skip decision step 2
 9
 0.0
 1
 
 SWITCH
-1514
-210
-1740
-243
+1493
+212
+1714
+245
 ethn-rel-recommendations
 ethn-rel-recommendations
 0
@@ -1193,33 +1193,24 @@ ethn-rel-recommendations
 -1000
 
 CHOOSER
-1359
+1356
 550
-1496
+1493
 595
 dissimilarity-religion
 dissimilarity-religion
 "all" "MUSLIM" "CHRISTIAN" "OTHER"
 0
 
-PLOT
-1515
-402
-1715
-552
-Moran-I
-time
-Moran-I
-0.0
-10.0
-0.0
-1.0
-true
-false
-"" ""
-PENS
-"default" 1.0 0 -2674135 true "" "plot moran-I districts"
-"pen-1" 1.0 0 -7500403 true "" "plot moran-I staticempiricals"
+TEXTBOX
+527
+10
+677
+32
+5. GIS Map
+18
+115.0
+1
 
 @#$#@#$#@
 ## WHAT IS IT?
@@ -1609,15 +1600,15 @@ NetLogo 6.3.0
 @#$#@#$#@
 @#$#@#$#@
 <experiments>
-  <experiment name="experiment_ethnic-religion" repetitions="10" runMetricsEveryStep="true">
+  <experiment name="experiment_ethnic-religion" repetitions="10" runMetricsEveryStep="false">
     <setup>setup</setup>
     <go>go</go>
-    <metric>precision (sum [(ethnic-simpson - town-ethnic-simpson) * totalpop] of districts / sum [totalpop] of districts) 3</metric>
-    <metric>precision (sum [dissimilarity 0 "all"] of districts / (2 * sum [totalpop] of districts * item 0 town-ethnicity-counts / town-totalpop * (1 - item 0 town-ethnicity-counts / town-totalpop))) 3</metric>
-    <metric>precision (sum [dissimilarity 1 "all"] of districts / (2 * sum [totalpop] of districts * item 1 town-ethnicity-counts / town-totalpop * (1 - item 1 town-ethnicity-counts / town-totalpop))) 3</metric>
-    <metric>precision (sum [dissimilarity 2 "all"] of districts / (2 * sum [totalpop] of districts * item 2 town-ethnicity-counts / town-totalpop * (1 - item 2 town-ethnicity-counts / town-totalpop))) 3</metric>
-    <metric>precision (sum [dissimilarity 3 "all"] of districts / (2 * sum [totalpop] of districts * item 3 town-ethnicity-counts / town-totalpop * (1 - item 3 town-ethnicity-counts / town-totalpop))) 3</metric>
-    <metric>precision moran-I districts 3</metric>
+    <metric>simpson-index</metric>
+    <metric>EGJ</metric>
+    <metric>CHN</metric>
+    <metric>EGS</metric>
+    <metric>OTH</metric>
+    <metric>moranI</metric>
     <enumeratedValueSet variable="town">
       <value value="&quot;Jakarta&quot;"/>
     </enumeratedValueSet>
@@ -1678,7 +1669,7 @@ NetLogo 6.3.0
       <value value="true"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="stop-tick">
-      <value value="100"/>
+      <value value="1000"/>
     </enumeratedValueSet>
   </experiment>
   <experiment name="experiment_ethnic-religion_2" repetitions="10" runMetricsEveryStep="false">
