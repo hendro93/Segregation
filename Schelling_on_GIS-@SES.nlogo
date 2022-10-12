@@ -466,8 +466,8 @@ end
 GRAPHICS-WINDOW
 518
 120
-1083
-686
+1026
+629
 -1
 -1
 15.152
@@ -633,7 +633,7 @@ SLIDER
 1496
 57
 1708
-87
+90
 free-space
 free-space
 0
@@ -648,7 +648,7 @@ SWITCH
 1574
 299
 1709
-329
+332
 always-search
 always-search
 1
@@ -659,7 +659,7 @@ SWITCH
 310
 307
 520
-341
+340
 tie-houses-to-ses
 tie-houses-to-ses
 1
@@ -670,7 +670,7 @@ CHOOSER
 312
 42
 520
-88
+87
 data-source
 data-source
 "empirical (static)" "simulation (dynamic)"
@@ -700,7 +700,7 @@ SLIDER
 310
 275
 520
-309
+308
 threshold-sd
 threshold-sd
 0
@@ -733,7 +733,7 @@ MONITOR
 1375
 358
 1709
-399
+403
 excess avg Simpson index
 (word (precision (sum [(ethnic-simpson - town-ethnic-simpson) * totalpop] of districts / sum [totalpop] of districts) 3)\n   \" (emp. \" (precision (sum [(ethnic-simpson - town-ethnic-simpson) * totalpop] of staticempiricals / sum [totalpop] of staticempiricals) 3) \")\")
 3
@@ -754,7 +754,7 @@ CHOOSER
 421
 133
 520
-179
+178
 ses
 ses
 "LOW" "MID" "HIGH"
@@ -764,7 +764,7 @@ CHOOSER
 312
 88
 520
-134
+133
 measure
 measure
 "--- for specific ethnicty ---" "ethnicity fraction" "ethnicity dissimilarity" "ethnicity location quotient" "ethnicity avg threshold" "ethnicity avg SES" "--- for specific SES ---" "SES fraction" "SES avg threshold" "--- for specific ethnicity and SES ---" "ethnicity-SES fraction" "ethnicity-SES loc. quo." "ethnicity-SES avg thres" "ethnicity-SES obs utility" "--- local indices ---" "Simpson index" "entropy index" "excess Simpson index" "loss ethnic entropy" "--- other measures ---" "pop / mean pop" "pop / max pop" "avg threshold" "avg SES"
@@ -774,7 +774,7 @@ SLIDER
 310
 243
 520
-277
+276
 threshold-mean
 threshold-mean
 0
@@ -839,7 +839,7 @@ MONITOR
 1374
 441
 1534
-482
+486
 Dissimilarity CHINESE
 dissimilarity-string 1 dissimilarity-ses
 3
@@ -850,7 +850,7 @@ MONITOR
 1374
 400
 1534
-441
+445
 Dissimilarity EGJ
 dissimilarity-string 0 dissimilarity-ses
 3
@@ -861,7 +861,7 @@ MONITOR
 1374
 482
 1534
-523
+527
 Dissimilarity EGS
 dissimilarity-string 2 dissimilarity-ses
 3
@@ -872,7 +872,7 @@ MONITOR
 1374
 523
 1534
-564
+568
 Dissimilarity OTHER
 dissimilarity-string 3 dissimilarity-ses
 3
@@ -904,7 +904,7 @@ SLIDER
 690
 42
 938
-76
+75
 color-axis-max
 color-axis-max
 0.1
@@ -919,7 +919,7 @@ SLIDER
 1497
 210
 1709
-240
+243
 turnover
 turnover
 0
@@ -934,7 +934,7 @@ SLIDER
 310
 619
 450
-653
+652
 beta-eth
 beta-eth
 0
@@ -964,7 +964,7 @@ SLIDER
 1497
 270
 1709
-300
+303
 neighbor-weight
 neighbor-weight
 0
@@ -979,7 +979,7 @@ SWITCH
 1533
 574
 1709
-604
+607
 others-ignore-ethn
 others-ignore-ethn
 0
@@ -1001,7 +1001,7 @@ MONITOR
 689
 76
 938
-122
+121
 data in map
 color-explain-string
 17
@@ -1044,7 +1044,7 @@ TEXTBOX
 1499
 40
 1642
-57
+58
 Used while loading town
 12
 0.0
@@ -1054,7 +1054,7 @@ TEXTBOX
 1502
 194
 1655
-211
+212
 Used at simulation runtime
 12
 0.0
@@ -1154,7 +1154,7 @@ MONITOR
 1374
 604
 1535
-645
+649
 searching
 searches-count / decisions-count
 3
@@ -1165,7 +1165,7 @@ MONITOR
 1374
 645
 1535
-686
+690
 moving
 moves-count / decisions-count
 3
@@ -1176,7 +1176,7 @@ SWITCH
 1574
 329
 1709
-359
+362
 always-move
 always-move
 1
@@ -1207,7 +1207,7 @@ SWITCH
 1497
 240
 1709
-270
+273
 ethn-ses-recommendations
 ethn-ses-recommendations
 1
@@ -1218,7 +1218,7 @@ CHOOSER
 1373
 564
 1534
-605
+609
 dissimilarity-ses
 dissimilarity-ses
 "all" "LOW" "MID" "HIGH"
@@ -1229,7 +1229,7 @@ TEXTBOX
 12
 684
 34
-5. GIS Map
+5. Monitor
 18
 115.0
 1
