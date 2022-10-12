@@ -1207,7 +1207,7 @@ TEXTBOX
 10
 677
 32
-5. GIS Map
+5. Monitor
 18
 115.0
 1
