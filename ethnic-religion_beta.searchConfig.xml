@@ -6,7 +6,7 @@
         <modelFile>/Users/hendrakusumah/Documents/GitHub/Segregation/Schelling_on_GIS-@Religion.nlogo</modelFile>
         <modelSetupCommands>setup</modelSetupCommands>
         <modelStepCommands>go</modelStepCommands>
-        <modelStopCondition>count turtles &gt; 1000</modelStopCondition>
+        <modelStopCondition>count turtles &gt; 100</modelStopCondition>
         <modelStepLimit>100</modelStepLimit>
         <modelMetricReporter>variance [dx] of turtles </modelMetricReporter>
         <modelMeasureIf>true</modelMeasureIf>
