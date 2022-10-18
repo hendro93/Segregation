@@ -630,7 +630,7 @@ SWITCH
 335
 tie-houses-to-religion
 tie-houses-to-religion
-0
+1
 1
 -1000
 
@@ -922,7 +922,7 @@ beta-rel
 beta-rel
 0
 30
-28.0
+9.0
 1
 1
 NIL
@@ -1218,7 +1218,40 @@ MONITOR
 2027
 548
 NIL
-[dx] of turtles
+standard-deviation [dy] of turtles
+17
+1
+11
+
+MONITOR
+1585
+563
+2025
+608
+dx
+standard-deviation [dx] of turtles
+17
+1
+11
+
+MONITOR
+1599
+629
+1753
+674
+NIL
+variance [dx] of turtles
+17
+1
+11
+
+MONITOR
+1835
+637
+2014
+682
+NIL
+mean [dy] of turtles
 17
 1
 11
