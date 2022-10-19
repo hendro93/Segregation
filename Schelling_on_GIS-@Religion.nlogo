@@ -1212,50 +1212,6 @@ TEXTBOX
 115.0
 1
 
-MONITOR
-1584
-503
-2027
-548
-NIL
-standard-deviation [dy] of turtles
-17
-1
-11
-
-MONITOR
-1585
-563
-2025
-608
-dx
-standard-deviation [dx] of turtles
-17
-1
-11
-
-MONITOR
-1599
-629
-1753
-674
-NIL
-variance [dx] of turtles
-17
-1
-11
-
-MONITOR
-1835
-637
-2014
-682
-NIL
-mean [dy] of turtles
-17
-1
-11
-
 @#$#@#$#@
 ## WHAT IS IT?
 
