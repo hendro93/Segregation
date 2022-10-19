@@ -642,7 +642,7 @@ CHOOSER
 data-source
 data-source
 "empirical (static)" "simulation (dynamic)"
-1
+0
 
 PLOT
 1088
@@ -716,7 +716,7 @@ CHOOSER
 ethnicity
 ethnicity
 "EGJ" "CHINESE" "EGS" "OTHER"
-1
+3
 
 CHOOSER
 422
@@ -736,7 +736,7 @@ CHOOSER
 measure
 measure
 "--- for specific ethnicty ---" "ethnicity fraction" "ethnicity dissimilarity" "ethnicity location quotient" "ethnicity avg threshold" "ethnicity avg religion" "--- for specific religion ---" "religion fraction" "religion avg threshold" "--- for specific ethnicity and religion ---" "ethnicity-religion fraction" "ethnicity-religion loc. quo." "ethnicity-religion avg thres" "ethnicity-religion obs utility" "--- local indices ---" "Simpson index" "entropy index" "excess Simpson index" "loss ethnic entropy" "--- other measures ---" "pop / mean pop" "pop / max pop" "avg threshold" "avg religion"
-1
+17
 
 SLIDER
 315
