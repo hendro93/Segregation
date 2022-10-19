@@ -71,7 +71,7 @@ to create-district-neighbor-links
 end
 
 to shuffle-population
-  ifelse tie-houses-to-religion [
+  ifelse housing-constraints [
     ; The following sets popdata in each district such that ethnicity counts in each religious group are proportional to town-wide ethnicity counts in each religious groups.
     ; The rel counts in each district remain as original. This makes the ethnic mean local Simpson index minimal (entropy maximal) while keeping religion structure as in reality.
     let townrelfrac map [x -> normalize-list x]  matrix:to-column-list matrix:from-row-list town-popdata
@@ -135,14 +135,14 @@ to individual-decides ; in a districts select a "virtual" person and let this de
   let rel-ind item 1 indiv
   ifelse random-float 1 < turnover [
     set forced-moves-count forced-moves-count + 1
-    let option ifelse-value (tie-houses-to-religion) [random-rel-option ethn-ind rel-ind] [random-option ethn-ind rel-ind]
+    let option ifelse-value (housing-constraints) [random-rel-option ethn-ind rel-ind] [random-option ethn-ind rel-ind]
     individual-moves option ethn-ind rel-ind indiv-ind indiv
   ] [
     let thresh item 2 indiv
     let U_home utility ethn-ind rel-ind thresh
     if U_home < 0 or always-search [
       set searches-count searches-count + 1
-      let option ifelse-value (tie-houses-to-religion) [random-rel-option ethn-ind rel-ind] [random-option ethn-ind rel-ind]
+      let option ifelse-value (housing-constraints) [random-rel-option ethn-ind rel-ind] [random-option ethn-ind rel-ind]
       let U_option [utility ethn-ind rel-ind thresh] of option
       if (U_option - U_home > 0) or (always-move) [
         set moves-count moves-count + 1
@@ -403,7 +403,7 @@ end
 to baseline-core-parameters
   set threshold-mean 0.3
   set threshold-sd 0.1
-  set tie-houses-to-religion true
+  set housing-constraints true
   set beta-eth 8
   set beta-rel 12
 end
@@ -628,9 +628,9 @@ SWITCH
 302
 517
 335
-tie-houses-to-religion
-tie-houses-to-religion
-1
+housing-constraints
+housing-constraints
+0
 1
 -1000
 
@@ -642,7 +642,7 @@ CHOOSER
 data-source
 data-source
 "empirical (static)" "simulation (dynamic)"
-0
+1
 
 PLOT
 1088
@@ -716,7 +716,7 @@ CHOOSER
 ethnicity
 ethnicity
 "EGJ" "CHINESE" "EGS" "OTHER"
-3
+1
 
 CHOOSER
 422
@@ -726,7 +726,7 @@ CHOOSER
 religion
 religion
 "MUSLIM" "CHRISTIAN" "OTHER"
-2
+1
 
 CHOOSER
 315
@@ -736,7 +736,7 @@ CHOOSER
 measure
 measure
 "--- for specific ethnicty ---" "ethnicity fraction" "ethnicity dissimilarity" "ethnicity location quotient" "ethnicity avg threshold" "ethnicity avg religion" "--- for specific religion ---" "religion fraction" "religion avg threshold" "--- for specific ethnicity and religion ---" "ethnicity-religion fraction" "ethnicity-religion loc. quo." "ethnicity-religion avg thres" "ethnicity-religion obs utility" "--- local indices ---" "Simpson index" "entropy index" "excess Simpson index" "loss ethnic entropy" "--- other measures ---" "pop / mean pop" "pop / max pop" "avg threshold" "avg religion"
-17
+1
 
 SLIDER
 315
