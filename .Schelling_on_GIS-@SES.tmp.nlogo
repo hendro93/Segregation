@@ -871,7 +871,7 @@ dissimilarity-string 2 dissimilarity-ses
 MONITOR
 1374
 523
-1534
+1540
 568
 Dissimilarity OTHER
 dissimilarity-string 3 dissimilarity-ses
@@ -1150,28 +1150,6 @@ PENS
 "searching" 1.0 0 -13791810 true "" "if ticks > 0 [plot searches-count / decisions-count]"
 "moving" 1.0 0 -955883 true "" "if ticks > 0 [plot moves-count / decisions-count]"
 
-MONITOR
-1374
-604
-1535
-649
-searching
-searches-count / decisions-count
-3
-1
-11
-
-MONITOR
-1374
-645
-1535
-690
-moving
-moves-count / decisions-count
-3
-1
-11
-
 SWITCH
 1616
 175
@@ -1217,7 +1195,7 @@ ethn-ses-recommendations
 CHOOSER
 1373
 564
-1534
+1540
 609
 dissimilarity-ses
 dissimilarity-ses
@@ -1622,7 +1600,7 @@ NetLogo 6.3.0
 @#$#@#$#@
 @#$#@#$#@
 <experiments>
-  <experiment name="experiment_ethnic-SES" repetitions="10" runMetricsEveryStep="false">
+  <experiment name="experiment_ethnic-SES" repetitions="10" runMetricsEveryStep="true">
     <setup>setup</setup>
     <go>go</go>
     <metric>simpson-index</metric>
@@ -1658,7 +1636,7 @@ NetLogo 6.3.0
     <enumeratedValueSet variable="threshold-sd">
       <value value="0.1"/>
     </enumeratedValueSet>
-    <enumeratedValueSet variable="tie-houses-to-ses">
+    <enumeratedValueSet variable="housing-constraints">
       <value value="false"/>
       <value value="true"/>
     </enumeratedValueSet>
