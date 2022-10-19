@@ -628,8 +628,8 @@ SWITCH
 302
 517
 335
-tie-houses-to-religion
-tie-houses-to-religion
+housing-constraints
+housing-constraints
 1
 1
 -1000
@@ -642,7 +642,7 @@ CHOOSER
 data-source
 data-source
 "empirical (static)" "simulation (dynamic)"
-1
+0
 
 PLOT
 1088
@@ -726,7 +726,7 @@ CHOOSER
 religion
 religion
 "MUSLIM" "CHRISTIAN" "OTHER"
-2
+1
 
 CHOOSER
 315
@@ -922,7 +922,7 @@ beta-rel
 beta-rel
 0
 30
-9.0
+8.0
 1
 1
 NIL
@@ -1211,50 +1211,6 @@ TEXTBOX
 18
 115.0
 1
-
-MONITOR
-1584
-503
-2027
-548
-NIL
-standard-deviation [dy] of turtles
-17
-1
-11
-
-MONITOR
-1585
-563
-2025
-608
-dx
-standard-deviation [dx] of turtles
-17
-1
-11
-
-MONITOR
-1599
-629
-1753
-674
-NIL
-variance [dx] of turtles
-17
-1
-11
-
-MONITOR
-1835
-637
-2014
-682
-NIL
-mean [dy] of turtles
-17
-1
-11
 
 @#$#@#$#@
 ## WHAT IS IT?
