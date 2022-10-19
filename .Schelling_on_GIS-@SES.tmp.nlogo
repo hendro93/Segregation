@@ -75,7 +75,7 @@ end
 
 to shuffle-population
 
-  ifelse housing-constraints [
+  ifelse tie-houses-to-ses [
     ; The following sets popdata in each district such that ethnicity counts in each ses group are proportional to town-wide ethnicity counts in each ses groups.
     ; The ses counts in each district remain as original. This makes the ethnic mean local Simpson index minimal (entropy maximal) while keeping ses structure as in reality.
     let townsesfrac map [x -> normalize-list x]  matrix:to-column-list matrix:from-row-list town-popdata
@@ -151,14 +151,14 @@ to individual-decides ; in a districts select a "virtual" person and let this de
   let ses-ind item 1 indiv
   ifelse random-float 1 < turnover [
     set forced-moves-count forced-moves-count + 1
-    let option ifelse-value (housing-constraints) [random-ses-option ethn-ind ses-ind] [random-option ethn-ind ses-ind]
+    let option ifelse-value (tie-houses-to-ses) [random-ses-option ethn-ind ses-ind] [random-option ethn-ind ses-ind]
     individual-moves option ethn-ind ses-ind indiv-ind indiv
   ] [
     let thresh item 2 indiv
     let U_home utility ethn-ind ses-ind thresh
     if U_home < 0 or always-search [
       set searches-count searches-count + 1
-      let option ifelse-value (housing-constraints) [random-ses-option ethn-ind ses-ind] [random-option ethn-ind ses-ind]
+      let option ifelse-value (tie-houses-to-ses) [random-ses-option ethn-ind ses-ind] [random-option ethn-ind ses-ind]
       let U_option [utility ethn-ind ses-ind thresh] of option
 ;      print(U_option)
       ;let free ifelse-value (tie-houses-to-ses) [[(item ses-ind ses-maxpop) - (item ses-ind ses-counts)] of option] [[maxpop - totalpop] of option]
@@ -435,7 +435,7 @@ end
 to baseline-core-parameters
   set threshold-mean 0.3
   set threshold-sd 0.1
-  set housing-constraints true
+  set tie-houses-to-ses true
   set beta-eth 8
   set beta-ses 12
 end
