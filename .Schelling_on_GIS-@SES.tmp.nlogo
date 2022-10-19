@@ -75,7 +75,7 @@ end
 
 to shuffle-population
 
-  ifelse tie-houses-to-ses [
+  ifelse housing-constraints [
     ; The following sets popdata in each district such that ethnicity counts in each ses group are proportional to town-wide ethnicity counts in each ses groups.
     ; The ses counts in each district remain as original. This makes the ethnic mean local Simpson index minimal (entropy maximal) while keeping ses structure as in reality.
     let townsesfrac map [x -> normalize-list x]  matrix:to-column-list matrix:from-row-list town-popdata
@@ -151,14 +151,14 @@ to individual-decides ; in a districts select a "virtual" person and let this de
   let ses-ind item 1 indiv
   ifelse random-float 1 < turnover [
     set forced-moves-count forced-moves-count + 1
-    let option ifelse-value (tie-houses-to-ses) [random-ses-option ethn-ind ses-ind] [random-option ethn-ind ses-ind]
+    let option ifelse-value (housing-constraints) [random-ses-option ethn-ind ses-ind] [random-option ethn-ind ses-ind]
     individual-moves option ethn-ind ses-ind indiv-ind indiv
   ] [
     let thresh item 2 indiv
     let U_home utility ethn-ind ses-ind thresh
     if U_home < 0 or always-search [
       set searches-count searches-count + 1
-      let option ifelse-value (tie-houses-to-ses) [random-ses-option ethn-ind ses-ind] [random-option ethn-ind ses-ind]
+      let option ifelse-value (housing-constraints) [random-ses-option ethn-ind ses-ind] [random-option ethn-ind ses-ind]
       let U_option [utility ethn-ind ses-ind thresh] of option
 ;      print(U_option)
       ;let free ifelse-value (tie-houses-to-ses) [[(item ses-ind ses-maxpop) - (item ses-ind ses-counts)] of option] [[maxpop - totalpop] of option]
@@ -435,7 +435,7 @@ end
 to baseline-core-parameters
   set threshold-mean 0.3
   set threshold-sd 0.1
-  set tie-houses-to-ses true
+  set housing-constraints true
   set beta-eth 8
   set beta-ses 12
 end
@@ -574,10 +574,10 @@ NIL
 HORIZONTAL
 
 PLOT
-1281
-42
-1496
-211
+1324
+41
+1539
+210
 distribution districts
 sorted districts
 measure
@@ -595,7 +595,7 @@ PENS
 PLOT
 1084
 42
-1281
+1323
 211
 histogram districts
 measure
@@ -630,10 +630,10 @@ OUTPUT
 12
 
 SLIDER
-1496
-57
-1708
-90
+1539
+58
+1751
+91
 free-space
 free-space
 0
@@ -645,10 +645,10 @@ NIL
 HORIZONTAL
 
 SWITCH
-1574
-299
-1709
-332
+1616
+145
+1751
+178
 always-search
 always-search
 1
@@ -678,9 +678,9 @@ data-source
 
 PLOT
 1083
-211
-1496
-358
+254
+1540
+401
 segregation index
 time
 Simpson
@@ -730,10 +730,10 @@ PENS
 "default" 0.025 1 -16777216 true "" "histogram all-thresholds"
 
 MONITOR
-1375
-358
-1709
-403
+1359
+354
+1538
+399
 excess avg Simpson index
 (word (precision (sum [(ethnic-simpson - town-ethnic-simpson) * totalpop] of districts / sum [totalpop] of districts) 3)\n   \" (emp. \" (precision (sum [(ethnic-simpson - town-ethnic-simpson) * totalpop] of staticempiricals / sum [totalpop] of staticempiricals) 3) \")\")
 3
@@ -838,7 +838,7 @@ TEXTBOX
 MONITOR
 1374
 441
-1534
+1540
 486
 Dissimilarity CHINESE
 dissimilarity-string 1 dissimilarity-ses
@@ -849,7 +849,7 @@ dissimilarity-string 1 dissimilarity-ses
 MONITOR
 1374
 400
-1534
+1540
 445
 Dissimilarity EGJ
 dissimilarity-string 0 dissimilarity-ses
@@ -860,7 +860,7 @@ dissimilarity-string 0 dissimilarity-ses
 MONITOR
 1374
 482
-1534
+1540
 527
 Dissimilarity EGS
 dissimilarity-string 2 dissimilarity-ses
@@ -881,7 +881,7 @@ dissimilarity-string 3 dissimilarity-ses
 
 PLOT
 1084
-358
+400
 1374
 564
 dissimilarity
@@ -916,15 +916,15 @@ NIL
 HORIZONTAL
 
 SLIDER
-1497
-210
-1709
-243
+1539
+112
+1751
+145
 turnover
 turnover
 0
 0.05
-0.001
+0.0
 0.001
 1
 NIL
@@ -961,10 +961,10 @@ NIL
 HORIZONTAL
 
 SLIDER
-1497
-270
-1709
-303
+1539
+242
+1751
+275
 neighbor-weight
 neighbor-weight
 0
@@ -976,10 +976,10 @@ NIL
 HORIZONTAL
 
 SWITCH
-1533
-574
-1709
-607
+1540
+275
+1751
+308
 others-ignore-ethn
 others-ignore-ethn
 0
@@ -987,10 +987,10 @@ others-ignore-ethn
 -1000
 
 INPUTBOX
-1496
-87
-1708
-184
+1540
+388
+1630
+448
 stop-tick
 1000.0
 1
@@ -1031,30 +1031,30 @@ Moran-I (spatial cor.)
 11
 
 TEXTBOX
-1508
-12
-1690
-31
+1551
+10
+1733
+29
 Further Parameters
 18
 114.0
 1
 
 TEXTBOX
-1499
-40
-1642
-58
+1542
+41
+1685
+59
 Used while loading town
 12
 0.0
 1
 
 TEXTBOX
-1502
-194
-1655
-212
+1544
+96
+1751
+114
 Used at simulation runtime
 12
 0.0
@@ -1082,7 +1082,7 @@ TEXTBOX
 12
 1461
 35
-6. Outcomes Simulation vs. Emipirical 
+6. Simulation vs. Emipirical 
 18
 114.0
 1
@@ -1098,10 +1098,10 @@ weights for the fraction of similars in the function of observable utility
 1
 
 BUTTON
-1534
-644
-1709
-686
+1540
+347
+1750
+389
 Set baseline further params
 baseline-further-parameters\n
 NIL
@@ -1115,10 +1115,10 @@ NIL
 1
 
 BUTTON
-1534
-604
-1709
-644
+1540
+307
+1750
+347
 Set baseline core params
 baseline-core-parameters
 NIL
@@ -1173,10 +1173,10 @@ moves-count / decisions-count
 11
 
 SWITCH
-1574
-329
-1709
-362
+1616
+175
+1751
+208
 always-move
 always-move
 1
@@ -1184,30 +1184,30 @@ always-move
 -1000
 
 TEXTBOX
-1504
-303
-1567
-380
+1546
+149
+1609
+226
 skip decision step 1
 9
 0.0
 1
 
 TEXTBOX
-1504
-331
-1567
-383
+1546
+177
+1609
+229
 skip decision step 2
 9
 0.0
 1
 
 SWITCH
-1497
-240
-1709
-273
+1539
+209
+1751
+242
 ethn-ses-recommendations
 ethn-ses-recommendations
 1
@@ -1222,7 +1222,7 @@ CHOOSER
 dissimilarity-ses
 dissimilarity-ses
 "all" "LOW" "MID" "HIGH"
-2
+0
 
 TEXTBOX
 534
@@ -1233,25 +1233,6 @@ TEXTBOX
 18
 115.0
 1
-
-PLOT
-1534
-398
-1709
-575
-Check_Moran-I
-NIL
-NIL
-0.0
-10.0
-0.0
-1.0
-true
-false
-"" ""
-PENS
-"default" 1.0 0 -2674135 true "" "plot precision moran-I districts 3"
-"pen-1" 1.0 0 -7500403 true "" "plot precision moran-I staticempiricals 3"
 
 @#$#@#$#@
 ## WHAT IS IT?
