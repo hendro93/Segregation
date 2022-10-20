@@ -16,17 +16,17 @@ sortedSESDataF = sortedSESData[sortedSESData$tie.houses.to.ses == "false",]
 
 #Ethnic dissimilarity index - BetaSES
 
-boxplot(EGJ ~ sortedSESDataF$beta.ses, data = sortedSESDataF, xlab = expression(paste(beta ["SES"]," (no housing constraint)"))
-       , ylab = "Dissimilarity Index (D)", col = "lightgrey", main = "Dissimilarity Index on Ethnic-SES Scenario", ylim = c(0,1) )
-boxplot(CHN ~ sortedSESDataF$beta.ses, data = sortedSESDataF, xlab = expression(paste(beta ["SES"]," (no housing constraint)"))
-        , ylab = "Dissimilarity Index (D)" , col = "red", main = "Dissimilarity Index on Ethnic-SES Scenario", add = T)
-boxplot(EGS ~ sortedSESDataF$beta.ses, data = sortedSESDataF, xlab = expression(paste(beta ["SES"]," (no housing constraint)"))
+boxplot((EGJ - 0.24) ~ sortedSESDataF$beta.ses, data = sortedSESDataF, xlab = expression(paste(beta ["SES"]," (no housing constraint)"))
+       , ylab = "Dissimilarity Index (D)", col = "lightgrey", main = "Dissimilarity Index on Ethnic-SES Scenario", ylim = c(-1,1) )
+boxplot((CHN - 0.42) ~ sortedSESDataF$beta.ses, data = sortedSESDataF, xlab = expression(paste(beta ["SES"]," (no housing constraint)"))
+        , ylab = "Dissimilarity Index (D)" , col = "maroon", main = "Dissimilarity Index on Ethnic-SES Scenario", add = T)
+boxplot((EGS-0.04) ~ sortedSESDataF$beta.ses, data = sortedSESDataF, xlab = expression(paste(beta ["SES"]," (no housing constraint)"))
         , ylab = "Dissimilarity Index (D)" , col = "green", main = "Dissimilarity Index on Ethnic-SES Scenario", add = T)
-boxplot(OTH ~ sortedSESDataF$beta.ses, data = sortedSESDataF, xlab = expression(paste(beta ["SES"]," (no housing constraint)"))
+boxplot((OTH - 0.2) ~ sortedSESDataF$beta.ses, data = sortedSESDataF, xlab = expression(paste(beta ["SES"]," (no housing constraint)"))
         , ylab = "Dissimilarity Index (D)" , col = "black", main = "Dissimilarity Index on Ethnic-SES Scenario", add = T)
 
 
-abline(h=0.24, col="red", lwd=2)
+abline(h=0.0, col="red", lwd=2)
 abline(h=0.42, col="red", lwd=2)
 abline(h=0.04, col="red", lwd=2)
 abline(h=0.2, col="red", lwd=2)

@@ -662,7 +662,7 @@ SWITCH
 340
 housing-constraints
 housing-constraints
-1
+0
 1
 -1000
 
@@ -909,7 +909,7 @@ color-axis-max
 color-axis-max
 0.1
 5
-2.5
+1.0
 0.1
 1
 NIL
@@ -954,7 +954,7 @@ beta-ses
 beta-ses
 0
 30
-12.0
+28.0
 1
 1
 NIL
@@ -1188,7 +1188,7 @@ SWITCH
 242
 ethn-ses-recommendations
 ethn-ses-recommendations
-1
+0
 1
 -1000
 
@@ -1600,7 +1600,7 @@ NetLogo 6.3.0
 @#$#@#$#@
 @#$#@#$#@
 <experiments>
-  <experiment name="experiment_ethnic-SES" repetitions="10" runMetricsEveryStep="false">
+  <experiment name="experiment_ethnic-SES" repetitions="10" runMetricsEveryStep="true">
     <setup>setup</setup>
     <go>go</go>
     <metric>simpson-index</metric>
@@ -1636,7 +1636,7 @@ NetLogo 6.3.0
     <enumeratedValueSet variable="threshold-sd">
       <value value="0.1"/>
     </enumeratedValueSet>
-    <enumeratedValueSet variable="tie-houses-to-ses">
+    <enumeratedValueSet variable="housing-constraints">
       <value value="false"/>
       <value value="true"/>
     </enumeratedValueSet>
