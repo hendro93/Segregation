@@ -674,7 +674,7 @@ CHOOSER
 data-source
 data-source
 "empirical (static)" "simulation (dynamic)"
-1
+0
 
 PLOT
 1083
@@ -768,7 +768,7 @@ CHOOSER
 measure
 measure
 "--- for specific ethnicty ---" "ethnicity fraction" "ethnicity dissimilarity" "ethnicity location quotient" "ethnicity avg threshold" "ethnicity avg SES" "--- for specific SES ---" "SES fraction" "SES avg threshold" "--- for specific ethnicity and SES ---" "ethnicity-SES fraction" "ethnicity-SES loc. quo." "ethnicity-SES avg thres" "ethnicity-SES obs utility" "--- local indices ---" "Simpson index" "entropy index" "excess Simpson index" "loss ethnic entropy" "--- other measures ---" "pop / mean pop" "pop / max pop" "avg threshold" "avg SES"
-1
+17
 
 SLIDER
 310
@@ -1243,27 +1243,7 @@ Click "Go" to run the simulation of relocation decisions of residents.
 
 ## NETLOGO BEHAVIORSPACE
 
-["town" "Jakarta"]
-["free-space" 0.05]
-["scale-down-pop" 100]
-["data-source" "simulation (dynamic)"]
-["measure" "ethnicity fraction"]
-["ethnicity" "CHINESE"]
-["ses" "LOW"]
-["threshold-mean" 0.3]
-["threshold-sd" 0.1]
-["housing-constraints" false true]
-["beta-eth" 8]
-["beta-ses" [0 4 30]]
-["color-axis-max" 1]
-["dissimilarity-ses" "all"]
-["turnover" 0]
-["always-search" false]
-["always-move" false]
-["ethn-ses-recommendations" true]
-["neighbor-weight" 0.17]
-["others-ignore-ethn" true]
-["stop-tick" 1000]
+
 
 
 ## CREDITS AND REFERENCES
@@ -1271,7 +1251,6 @@ Click "Go" to run the simulation of relocation decisions of residents.
 Originally programmed by Jan Lorenz
 
 Reference:
-
 **"Exploring the dynamics of neighborhood ethnic segregation with agent-based modelling: an empirical application to Bradford"**
 by Carolina V. ZUCCOTTI, Jan LORENZ, Rocco PAOLILLO, Alejandra RODRÍGUEZ SÁNCHEZ, and Selamawit SERKA (2021). 
 @#$#@#$#@
