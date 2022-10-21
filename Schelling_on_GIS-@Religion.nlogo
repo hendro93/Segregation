@@ -1216,20 +1216,19 @@ TEXTBOX
 ## WHAT IS IT?
 
 A model of **residential segregation** inspired by **Schelling's model** implemented on real-world maps in GIS format. The model can be fed with real world demographic data. 
-Besides the real-world geography, Schelling's model is extended to also include the **socio-economic status** additional to **ethnicity** of residents. 
+Besides the real-world geography, Schelling's model is extended to also include **religion** additional to **ethnicity** of residents. 
 
 ## HOW IT WORKS
 
 This is document in the paper:
 
-**"Exploring the dynamics of neighborhood ethnic segregation with agent-based modelling: an empirical application to Bradford"**
-by Carolina V. ZUCCOTTI, Jan LORENZ, Rocco PAOLILLO, Alejandra RODRÍGUEZ SÁNCHEZ, and Selamawit SERKA (2021).
+**"UNREVEALING THE MOST INFLUENTIAL DETERMINANTS OF RESIDENTIAL SEGREGATION IN JAKARTA: AN AGENT-BASED MODELING AND SIMULATION"**
+by Hendra Kusumah and Meditya Wasesa (2022).
+
 
 This model and, in particular, the **necessary shapefiles and demographic data** is provided here
-https://github.com/janlorenz/Schelling_on_GIS
+https://github.com/hendro93/Segregation
 
-All notes below are just teasers to this full documentation. 
-Some modeling details are commented in the code. 
 
 ## HOW TO USE IT
 
@@ -1241,54 +1240,40 @@ Click "Shuffle Population" to create a counter-factual situation where every reg
 
 Click "Go" to run the simulation of relocation decisions of residents. 
 
-## THINGS TO NOTICE
 
-See if and how ethnic segregation re-emerges from the artifically de-segregated situation. 
+## NETLOGO BEHAVIORSPACE
 
-## THINGS TO TRY
-
-On outline of successive simulation experiments are documented in the paper cited above.
-
-## NETLOGO FEATURES
-
-This is a short more technical outline highlighting how NetLogo's features are used.
-
-For each LSOA an agent of the breed `district` is created located at the center of the LSOA. Further on, links are created between districts representing shapes which share a border.
-
-Each district object stores the counts for all twelve types of individuals (four ethnicities times three socio-economic status) in a variable. 
-
-Bradford
-
-|Ethnicity |  high|   low|   mid|
-|:---------|-----:|-----:|-----:|
-|asian     |  9922| 21004| 14407|
-|black     |  1292|  2183|   789|
-|othereth  |  2993|  8922|  2740|
-|whiteb    | 35004| 62098| 33066|
-
-Bradford LSOA E01010597
-
-|Ethnicity | high| mid| low|
-|:---------|----:|---:|---:|
-|whiteb    |  191| 217| 352|
-|asian     |   28|  38|  55|
-|black     |    7|  10|   7|
-|othereth  |   19|   8|  44|
-
-Further on, in each district a list of lists is created where each sublist represents one of the individuals in the district. Each sublist has three elements: The indication of the individual's ethnicity, the indication of the individual's SES, and a random number from a Beta-distribution drawn upon initialization representing the individual's theshold $\theta$. The Beta-distribution is parameterized by the two parameters `threshold-mean` $\mu_\theta$ and `threshold-sd` $\sigma_\theta$ (in the section "3. Setup Simulation") representing the mean and the standard deviation of the thresholds in the population. 
-
-Finally, for each district we set maximal numbers of individuals for each SES group. These numbers are set such that a is a fraction of `free-space` of these maximal number are not occupied initially. Thus, we assume that in each district there are certain fractions of houses, flats, or rooms suitable and affordable for each of the three SES groups. With `free-space` = 0.05, 5% of these places are initially free. 
-
-Compared to a typical model in NetLogo our implementation does not represent each individual as an agent but as an item in a list stored by a district (which is a turtle in this implementation). 
-
-The selection of an individual is modeled by first selecting a district at random and second one of the individuals from the list of lists stored in that district. From the selected sublist we know the ethnicity, the SES and the threshold of the individual. LSOAs differ in size. Therefore, we adjusted for that by selecting and individual from districts with below average population only with a certain probability. In the case of an above average district, we do more than one individual decision with probabilities such that the expected number of decisions fits to the the relative size of the district.
-
-Once an individual is selected the process is as follows: First, the individual may be forced to move with a (small) probability of `turnover` (e.g. 0.003 or switched off when 0). In this case, the individual selects another place to move. This place is randomly selected from all available places suitable for the SES of the individual in the whole town. To that end, we compute for each district the difference between the population count and the maximal population for the respective SES group. Then we select one district with probabilities proportional to that number, a procedure sometimes called roulette wheel selection. When the individual is not forced to move, the individual assesses their utility with the current residence based on the parameters `beta-eth` and `beta-ses`. This includes the computation of the fractions of population with the same ethnicity and the same SES in the neighborhood and the draw of a random number from a standard Gumbel distribution. The parameter `neighbor-weight` weights the population of all neighboring districts for the counts used to compute the fractions in the neighborhood (e.g. 0.17). When the utility obtained from the current residence is negative, the individual starts to search. In the model that means, the individual selects a potential new place with the same procedure but weights for the roulette wheel selection being adjusted by a `recommendation-probability` when `ethn-ses-recommendations` is switched on. Naturally, this place lies most likely in another district. The individual then assesses the utility for the new place in the same way as it assessesed the utility for the current residence (but with a new independent random draw from a Gumbel distribution). Finally, the individual moves to the new place when the utility from the new place is higher than the utility form the current place. Technically, then the counts in the old and new districts are updated and the sublist for the list of individuals is removed in the old district and appended to the list in the new district. In that way, the individual carries also their the individual threshold to the new district. 
+["town" "Jakarta"]
+["free-space" 0.05]
+["scale-down-pop" 100]
+["data-source" "simulation (dynamic)"]
+["measure" "ethnicity fraction"]
+["ethnicity" "CHINESE"]
+["religion" "OTHER"]
+["threshold-mean" 0.3]
+["threshold-sd" 0.1]
+["housing-constraints" false true]
+["beta-eth" 8]
+["beta-rel" [0 4 30]]
+["color-axis-max" 1]
+["dissimilarity-religion" "all"]
+["turnover" 0]
+["always-search" false]
+["always-move" false]
+["ethn-rel-recommendations" true]
+["neighbor-weight" 0.17]
+["others-ignore-ethn" true]
+["stop-tick" 1000]
 
 
 ## CREDITS AND REFERENCES
 
-Programmed by Jan Lorenz with the help of Rocco Paolillo and advice from all authors. 
+Originally programmed by Jan Lorenz
+
+Reference:
+
+**"Exploring the dynamics of neighborhood ethnic segregation with agent-based modelling: an empirical application to Bradford"**
+by Carolina V. ZUCCOTTI, Jan LORENZ, Rocco PAOLILLO, Alejandra RODRÍGUEZ SÁNCHEZ, and Selamawit SERKA (2021). 
 @#$#@#$#@
 default
 true
