@@ -1205,9 +1205,9 @@ dissimilarity-religion
 TEXTBOX
 527
 10
-677
-32
-5. Monitor
+745
+54
+5. Simulation Monitor
 18
 115.0
 1

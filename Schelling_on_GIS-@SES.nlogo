@@ -1205,9 +1205,9 @@ dissimilarity-ses
 TEXTBOX
 534
 12
-684
-34
-5. Monitor
+802
+60
+5. Simulation Monitor
 18
 115.0
 1
