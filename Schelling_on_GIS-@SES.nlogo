@@ -1241,6 +1241,11 @@ Click "Shuffle Population" to create a counter-factual situation where every reg
 Click "Go" to run the simulation of relocation decisions of residents. 
 
 
+## THINGS TO NOTICE
+
+See if and how ethnic segregation re-emerges from the artifically de-segregated situation. 
+
+
 ## NETLOGO BEHAVIORSPACE
 
 ["town" "Jakarta"]
