@@ -726,7 +726,7 @@ CHOOSER
 religion
 religion
 "MUSLIM" "CHRISTIAN" "OTHER"
-2
+0
 
 CHOOSER
 315
