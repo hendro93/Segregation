@@ -850,8 +850,8 @@ dissimilarity-string 3 dissimilarity-religion
 PLOT
 1088
 370
-1356
-544
+1357
+593
 dissimilarity
 time
 dissimilarity
@@ -1001,9 +1001,9 @@ Moran-I (spatial cor.)
 TEXTBOX
 1492
 10
-1674
-29
-Further Parameters
+1710
+59
+7. Further Parameters
 18
 114.0
 1
@@ -1109,47 +1109,6 @@ Time trends\n
 0.0
 1
 
-PLOT
-1088
-545
-1356
-692
-Individual activities
-time
-fraction
-0.0
-1.0
-0.0
-0.25
-true
-true
-"" ""
-PENS
-"searching" 1.0 0 -13791810 true "" "if ticks > 0 [plot searches-count / decisions-count]"
-"moving" 1.0 0 -955883 true "" "if ticks > 0 [plot moves-count / decisions-count]"
-
-MONITOR
-1283
-600
-1355
-645
-searching
-searches-count / decisions-count
-3
-1
-11
-
-MONITOR
-1283
-645
-1355
-690
-moving
-moves-count / decisions-count
-3
-1
-11
-
 SWITCH
 1568
 180
@@ -1207,7 +1166,7 @@ TEXTBOX
 10
 745
 54
-5. Simulation Monitor
+5. Visualization
 18
 115.0
 1

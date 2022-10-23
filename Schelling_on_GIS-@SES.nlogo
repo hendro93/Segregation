@@ -574,10 +574,10 @@ NIL
 HORIZONTAL
 
 PLOT
-1324
-41
-1539
-210
+1084
+43
+1299
+212
 distribution districts
 sorted districts
 measure
@@ -593,10 +593,10 @@ PENS
 "emp" 1.0 0 -7500403 true "" "let y sort filter is-number? map value-for-monitoring [self] of staticempiricals\nforeach range length y [x -> plotxy x item x y ]\n"
 
 PLOT
-1084
-42
-1323
-211
+1299
+43
+1538
+212
 histogram districts
 measure
 #districts
@@ -1031,11 +1031,11 @@ Moran-I (spatial cor.)
 11
 
 TEXTBOX
-1551
-10
-1733
-29
-Further Parameters
+1542
+13
+1755
+61
+7. Further Parameters
 18
 114.0
 1
