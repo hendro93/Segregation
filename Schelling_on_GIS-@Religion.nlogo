@@ -747,7 +747,7 @@ threshold-mean
 threshold-mean
 0
 1
-0.66
+0.3
 0.01
 1
 NIL
@@ -922,7 +922,7 @@ beta-rel
 beta-rel
 0
 30
-8.0
+12.0
 1
 1
 NIL
@@ -1050,7 +1050,7 @@ TEXTBOX
 10
 1453
 33
-6. Emipirical Validation
+6. Empirical Validation
 18
 114.0
 1
