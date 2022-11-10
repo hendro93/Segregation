@@ -922,7 +922,7 @@ beta-rel
 beta-rel
 0
 30
-12.0
+4.0
 1
 1
 NIL
