@@ -407,29 +407,6 @@ to baseline-core-parameters
   set beta-eth 8
   set beta-rel 12
 end
-
-;; EXPORT DATA
-
-;to export-town_th-m_th-sd_tiehouses_b-eth_b-rel_ticks [TOW TH-M TH-SD TIEHOUSE B-ETH B-REL TI]
-;  set town TOW
-;  set scale-down-pop 10
-;  baseline-further-parameters
-;  set threshold-mean TH-M
-;  set threshold-sd TH-SD
-;  set tie-houses-to-religion TIEHOUSE
-;  set beta-eth B-ETH
-;  set beta-rel B-REL
-;  set stop-tick TI
-;  setup
-;  shuffle-population
-;  repeat stop-tick [ go ]
-;  export-world (word "worlds/" TOWN "_" TH-M "_" TH-SD "_" TIEHOUSE "_" B-ETH "_" B-REL "_t" TI ".csv")
-;end
-;
-;to load-town_th-m_th-sd_tiehouses_b-eth_b-rel_ticks [TOW TH-M TH-SD TIEHOUSE B-ETH B-REL TI]
-;  import-world (word "worlds/" TOWN "_" TH-M "_" TH-SD "_" TIEHOUSE "_" B-ETH "_" B-REL "_t" TI ".csv")
-;  load-gisdataset
-;end
 @#$#@#$#@
 GRAPHICS-WINDOW
 518
