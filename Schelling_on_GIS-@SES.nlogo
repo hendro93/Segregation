@@ -58,7 +58,7 @@ end
 
 to load-gisdataset
   set townshp gis:load-dataset (word town "/" town ".shp")
-;  set admshp gis:load-dataset (word town "/" town "merge.shp")
+  set admshp gis:load-dataset (word town "/" town "merge.shp")
 ;  set jakbarshp gis:load-dataset (word town "/" "jakbar.shp")
 ;  set jakpusshp gis:load-dataset (word town "/" "jakpus.shp")
 ;  set jakselshp gis:load-dataset (word town "/" "jaksel.shp")
@@ -238,7 +238,7 @@ to visualize
   gis:set-drawing-color grey
   gis:draw townshp 1
   gis:set-drawing-color black
-;  gis:draw admshp 5
+  gis:draw admshp 2
 ;  gis:set-drawing-color red
 ;  gis:draw jakbarshp 2
 ;  gis:set-drawing-color blue
@@ -439,7 +439,6 @@ to baseline-core-parameters
   set beta-eth 8
   set beta-ses 12
 end
-
 @#$#@#$#@
 GRAPHICS-WINDOW
 520

@@ -2,8 +2,8 @@ extensions [ matrix rnd gis profiler]
 breed [districts district]
 breed [staticempiricals staticempirical]
 
-globals [ townshp
-;  admshp jakbarshp jakpusshp jakselshp jaktimshp jakutshp ; shapefiles
+globals [ townshp admshp
+;   jakbarshp jakpusshp jakselshp jaktimshp jakutshp ; shapefiles
           ethnicities religions ; lists of names
           town-popdata town-ethnicity-counts town-rel-counts town-totalpop all-thresholds ; lists of constants for statistical purposes
           decisions-count forced-moves-count searches-count moves-count
@@ -55,7 +55,7 @@ end
 
 to load-gisdataset
   set townshp gis:load-dataset (word town "/" town ".shp")
-;  set admshp gis:load-dataset (word town "/" town "merge.shp")
+  set admshp gis:load-dataset (word town "/" town "merge.shp")
 ;  set jakbarshp gis:load-dataset (word town "/" "jakbar.shp")
 ;  set jakpusshp gis:load-dataset (word town "/" "jakpus.shp")
 ;  set jakselshp gis:load-dataset (word town "/" "jaksel.shp")
@@ -218,7 +218,7 @@ to visualize
   gis:set-drawing-color grey
   gis:draw townshp 1
   gis:set-drawing-color 130
-;  gis:draw admshp 5
+;  gis:draw admshp 2
 ;  gis:set-drawing-color red
 ;  gis:draw jakbarshp 2
 ;  gis:set-drawing-color blue
@@ -619,7 +619,7 @@ CHOOSER
 data-source
 data-source
 "empirical (static)" "simulation (dynamic)"
-1
+0
 
 PLOT
 1088
@@ -703,7 +703,7 @@ CHOOSER
 religion
 religion
 "MUSLIM" "CHRISTIAN" "OTHER"
-2
+1
 
 CHOOSER
 315
@@ -713,7 +713,7 @@ CHOOSER
 measure
 measure
 "--- for specific ethnicty ---" "ethnicity fraction" "ethnicity dissimilarity" "ethnicity location quotient" "ethnicity avg threshold" "ethnicity avg religion" "--- for specific religion ---" "religion fraction" "religion avg threshold" "--- for specific ethnicity and religion ---" "ethnicity-religion fraction" "ethnicity-religion loc. quo." "ethnicity-religion avg thres" "ethnicity-religion obs utility" "--- local indices ---" "Simpson index" "entropy index" "excess Simpson index" "loss ethnic entropy" "--- other measures ---" "pop / mean pop" "pop / max pop" "avg threshold" "avg religion"
-1
+10
 
 SLIDER
 315
